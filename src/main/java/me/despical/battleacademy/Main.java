@@ -17,8 +17,8 @@ public class Main extends JavaPlugin {
 
 	private ChatManager chatManager;
     private CommandFramework commandFramework;
-	private UserManager userManager;
 	private LevelManager levelManager;
+	private UserManager userManager;
 
     @Override
     public void onEnable() {
@@ -35,8 +35,8 @@ public class Main extends JavaPlugin {
 
 		this.chatManager = new ChatManager(this);
 		this.commandFramework = new CommandFramework(this);
-		this.userManager = new UserManager(this);
 		this.levelManager = new LevelManager(this);
+		this.userManager = new UserManager(this);
 
 		new Commands(this);
 

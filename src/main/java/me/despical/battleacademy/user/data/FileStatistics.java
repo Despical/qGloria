@@ -43,5 +43,10 @@ public non-sealed class FileStatistics extends IUserDatabase {
 		for (StatsStorage.StatisticType stat : StatsStorage.StatisticType.values()) {
 			user.setStat(stat, config.getInt(uuid + "." + stat.getName()));
 		}
+
+		var levelManager = plugin.getLevelManager();
+
+		levelManager.updatePlayerSpeed(user);
+		levelManager.updatePlayerSpeed(user);
 	}
 }
