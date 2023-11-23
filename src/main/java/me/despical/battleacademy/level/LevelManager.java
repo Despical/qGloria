@@ -1,0 +1,76 @@
+package me.despical.battleacademy.level;
+
+import me.despical.battleacademy.Main;
+import me.despical.battleacademy.api.StatsStorage;
+import me.despical.battleacademy.user.User;
+import me.despical.commons.configuration.ConfigUtils;
+
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class LevelManager {
+
+	private final Set<Level> levels;
+
+	public LevelManager(Main plugin) {
+		this.levels = new HashSet<>();
+
+		this.registerLevels(plugin);
+	}
+
+	public void addXP(User user, int xp) {
+		final var currentLevel = getLevel(user);
+
+		if (currentLevel.getLevel() < 3) {
+			xp += ThreadLocalRandom.current().nextInt(5, 30);
+		}
+
+		final var currentLevelXP = currentLevel.getXp();
+		final var playerXP = user.getStat(StatsStorage.StatisticType.XP);
+
+		user.addStat(StatsStorage.StatisticType.XP, xp);
+
+		if (currentLevel.getLevel() == getLastLevel()) return;
+
+		if (playerXP + xp >= currentLevelXP) {
+			user.addStat(StatsStorage.StatisticType.LEVEL, 1);
+
+			user.sendRawMessage("Seviye atladın, yeni seviyen: %d", user.getStat(StatsStorage.StatisticType.LEVEL));
+		}
+	}
+
+	public Level getLevel(User user) {
+		final int level = user.getStat(StatsStorage.StatisticType.LEVEL);
+
+		return levels.stream().filter(l -> l.getLevel() == level).findFirst().orElse(null);
+	}
+
+	public int getLastLevel() {
+		return levels.stream().map(Level::getLevel).max(Comparator.naturalOrder()).orElse(-1);
+	}
+
+	public Level getNextLevel(User user) {
+		final int level = user.getStat(StatsStorage.StatisticType.LEVEL) + 1;
+
+		return levels.stream().filter(l -> l.getLevel() == level).findFirst().orElse(null);
+	}
+
+	private void registerLevels(Main plugin) {
+		final var config = ConfigUtils.getConfig(plugin, "levels");
+		final var section = config.getConfigurationSection("levels");
+
+		if (section == null) {
+			plugin.getLogger().warning("There is no 'levels' section found in the file!");
+			return;
+		}
+
+		for (final var levelKey : section.getKeys(false)) {
+			final var level = Integer.parseInt(levelKey);
+			final var xp = Integer.parseInt(config.getString("levels.%s.xp".formatted(levelKey)));
+
+			this.levels.add(new Level(level, xp));
+		}
+	}
+}

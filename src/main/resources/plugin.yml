@@ -1,0 +1,5 @@
+name: BattleAcademy
+authors: [ Despical, Erisos ]
+version: ${project.version}
+api-version: 1.13
+main: me.despical.battleacademy.Main
