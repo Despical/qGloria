@@ -11,41 +11,60 @@ levels:
     xp: 303
   '6':
     xp: 389
+    attack-speed: 0.05
   '7':
     xp: 483
+    defense: 0.1
   '8':
     xp: 585
+    fall-damage-defense: 0.2
   '9':
     xp: 695
   '10':
     xp: 813
+    lava-defense: 0.25
+    speed: 0.005
   '11':
     xp: 939
+    attack: 0.25
   '12':
     xp: 1071
+    defense: 0.15
   '13':
     xp: 1215
+    fall-damage-defense: 0.25
   '14':
     xp: 1365
+    fire-defense: 0.25
   '15':
     xp: 1523
+    speed: 0.005
   '16':
     xp: 1689
+    attack: 0.15
   '17':
     xp: 1863
   '18':
     xp: 2045
+    saturation: 0.4
   '19':
     xp: 2235
   '20':
     xp: 2433
+    critical-hit: 0.095
+    lava-defense: 0.25
   '21':
     xp: 2639
+    fire-defense: 0.25
   '22':
     xp: 2853
   '23':
     xp: 3075
+    defense: 0.05
   '24':
     xp: 3305
+    defense: 0.25
   '25':
     xp: 3543
+    attack: 0.5
+    attack-speed: 0.025
