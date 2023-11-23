@@ -4,6 +4,7 @@ import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.configuration.ConfigUtils;
+import me.despical.commons.miscellaneous.AttributeUtils;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -12,9 +13,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class LevelManager {
 
+	private final Main plugin;
 	private final Set<Level> levels;
 
 	public LevelManager(Main plugin) {
+		this.plugin = plugin;
 		this.levels = new HashSet<>();
 
 		this.registerLevels(plugin);
@@ -36,6 +39,8 @@ public class LevelManager {
 
 		if (playerXP + xp >= currentLevelXP) {
 			user.addStat(StatsStorage.StatisticType.LEVEL, 1);
+
+			updateAttackSpeed(user);
 
 			user.sendRawMessage("Seviye atladın, yeni seviyen: %d", user.getStat(StatsStorage.StatisticType.LEVEL));
 		}
@@ -72,5 +77,23 @@ public class LevelManager {
 
 			this.levels.add(new Level(level, xp));
 		}
+	}
+
+	public void updateAttackSpeed(User user) {
+		var currentLevel = getLevel(user).getLevel();
+		double attackSpeed = 0;
+
+		final var config = ConfigUtils.getConfig(plugin, "levels");
+		final var section = config.getConfigurationSection("levels");
+
+		for (final var levelKey : section.getKeys(false)) {
+			var level = Integer.parseInt(levelKey);
+
+			if (level > currentLevel) break;
+
+			attackSpeed += config.getDouble("levels.%s.attack-speed".formatted(levelKey), 0);
+		}
+
+		AttributeUtils.setAttackCooldown(user.getPlayer(), 16 - attackSpeed);
 	}
 }
