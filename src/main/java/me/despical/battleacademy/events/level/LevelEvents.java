@@ -39,6 +39,7 @@ public class LevelEvents extends EventListener {
 		switch (event.getCause()) {
 			case LAVA -> event.setDamage(Math.max(damage - levelManager.getModifier("lava-defense", level), 0));
 			case FIRE -> event.setDamage(Math.max(damage - levelManager.getModifier("fire-defense", level), 0));
+			case FALL -> event.setDamage(Math.max(damage - levelManager.getModifier("fall-damage-defense", level), 0));
 		}
 	}
 }
