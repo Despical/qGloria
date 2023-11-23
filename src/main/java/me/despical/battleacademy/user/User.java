@@ -59,6 +59,10 @@ public class User {
 		statistics.put(stat, value);
 	}
 
+	public int getLevel() {
+		return plugin.getLevelManager().getLevel(this).getLevel();
+	}
+
 	public void addStat(StatsStorage.StatisticType stat, int value) {
 		setStat(stat, getStat(stat) + value);
 	}
