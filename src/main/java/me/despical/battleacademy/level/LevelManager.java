@@ -41,6 +41,7 @@ public class LevelManager {
 			user.addStat(StatsStorage.StatisticType.LEVEL, 1);
 
 			updateAttackSpeed(user);
+			updatePlayerSpeed(user);
 
 			user.sendRawMessage("Seviye atladın, yeni seviyen: %d", user.getStat(StatsStorage.StatisticType.LEVEL));
 		}
@@ -83,6 +84,14 @@ public class LevelManager {
 		var currentLevel = getLevel(user).getLevel();
 
 		AttributeUtils.setAttackCooldown(user.getPlayer(), 16 - getModifier("attack-speed", currentLevel));
+	}
+
+	public void updatePlayerSpeed(User user) {
+		var currentLevel = getLevel(user).getLevel();
+
+		var player = user.getPlayer();
+
+		player.setWalkSpeed(.2F + (float) getModifier("speed", currentLevel));
 	}
 
 	public double getModifier(String modifierName, int currentLevel) {
