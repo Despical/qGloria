@@ -81,7 +81,12 @@ public class LevelManager {
 
 	public void updateAttackSpeed(User user) {
 		var currentLevel = getLevel(user).getLevel();
-		double attackSpeed = 0;
+
+		AttributeUtils.setAttackCooldown(user.getPlayer(), 16 - getModifier("attack-speed", currentLevel));
+	}
+
+	public double getModifier(String modifierName, int currentLevel) {
+		double modifier = 0;
 
 		final var config = ConfigUtils.getConfig(plugin, "levels");
 		final var section = config.getConfigurationSection("levels");
@@ -91,9 +96,9 @@ public class LevelManager {
 
 			if (level > currentLevel) break;
 
-			attackSpeed += config.getDouble("levels.%s.attack-speed".formatted(levelKey), 0);
+			modifier += config.getDouble("levels.%s.%s".formatted(levelKey, modifierName), 0);
 		}
 
-		AttributeUtils.setAttackCooldown(user.getPlayer(), 16 - attackSpeed);
+		return modifier;
 	}
 }
