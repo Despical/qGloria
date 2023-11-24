@@ -2,6 +2,7 @@ package me.despical.battleacademy.commands;
 
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
+import me.despical.battleacademy.elemental.SelectMenu;
 import me.despical.battleacademy.menus.profile.ProfileMenu;
 import me.despical.commandframework.Command;
 import me.despical.commandframework.CommandArguments;
@@ -62,10 +63,19 @@ public class Commands {
 		new ProfileMenu(plugin, arguments.getSender());
 	}
 
+	@Command(
+		name = "battleacademy.select",
+		senderType = Command.SenderType.PLAYER
+	)
+	public void selectCommands(CommandArguments arguments) {
+		new SelectMenu(plugin, arguments.getSender());
+	}
+
 	@Completer(
 		name = "battleacademy"
 	)
 	public List<String> completer(CommandArguments arguments) {
 		return List.of("stats", "profile");
 	}
+
 }
