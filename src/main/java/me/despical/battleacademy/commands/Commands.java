@@ -2,7 +2,7 @@ package me.despical.battleacademy.commands;
 
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
-import me.despical.battleacademy.elemental.SelectMenu;
+import me.despical.battleacademy.menus.elements.SelectMenu;
 import me.despical.battleacademy.menus.profile.ProfileMenu;
 import me.despical.commandframework.Command;
 import me.despical.commandframework.CommandArguments;
@@ -52,7 +52,6 @@ public class Commands {
 		user.sendRawMessage("Level: %d\nXP: %d", user.getStat(StatsStorage.StatisticType.LEVEL), user.getStat(StatsStorage.StatisticType.XP));
 		user.sendRawMessage("Kills: " + user.getStat(StatsStorage.StatisticType.KILLS));
 		user.sendRawMessage("Death: " + user.getStat(StatsStorage.StatisticType.DEATHS));
-		user.sendRawMessage("Taken Damage: " + user.getStat(StatsStorage.StatisticType.DAMAGE_TAKEN));
 	}
 
 	@Command(
@@ -75,7 +74,7 @@ public class Commands {
 		name = "battleacademy"
 	)
 	public List<String> completer(CommandArguments arguments) {
-		return List.of("stats", "profile");
+		return List.of("stats", "profile", "select");
 	}
 
 }

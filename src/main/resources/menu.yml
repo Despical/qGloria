@@ -1,0 +1,22 @@
+element-menu:
+  fire-element:
+    name: "#ff2600&lFire #ff2600⚔"
+    lore:
+      - ""
+      - "&7Fire elemental damage is higher than other"
+      - "&7elements, you take less damage from fire and lava,"
+      - "&7but you walk slowly and have less defence."
+      - ""
+      - "#ff2600&lSkills:"
+      - "#ffd930• Fire Arrows: #999999The ability to fire fire arrows at multiple enemies."
+      - "#ffd930• Execution: #999999Deal instant damage to enemies with a fiery blow."
+      - "#ffd930• Flame Lightning: #999999Launch a high-damage fireball to cover a large area."
+      - "#ffd930• Flame Armor: #999999Absorbing attacks by creating fire-resistant armor for a short time."
+      - "#ffd930• Exploding Flame: #999999An attack that sprays fire when you hit enemies."
+      - "#ffd930• Ring of Flame: #999999Burn and slow enemies by creating a ring of fire around you."
+      - ""
+      - "#ff2600&lCore Values:"
+      - "#ffd930• Attack: #30ff491.5"
+      - "#ffd930• Fire Defense: #30ff491.2"
+      - "#ffd930• Lava Defense: #30ff491.3"
+      - "#ffd930• Speed: #A932260.9"

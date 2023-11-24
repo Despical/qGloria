@@ -14,7 +14,6 @@ public class ProfileComponents {
 		var skullMeta = (SkullMeta) skull.getItemMeta();
 
 		ItemUtils.setPlayerHead(menu.player, skullMeta);
-
 		skull.setItemMeta(skullMeta);
 
 		var user = menu.plugin.getUserManager().getUser(menu.player);
@@ -26,15 +25,12 @@ public class ProfileComponents {
 
 		menu.pane.addItem(GuiItem.of(skullItem), 4, 0);
 
-
-
 		var statsItem = new ItemBuilder(Material.DIAMOND_SWORD)
 			.name("&cStats:")
 			.lore("&7Kills: &6" + user.getStat(StatsStorage.StatisticType.KILLS))
 			.lore("&7Deaths: &6" + user.getStat(StatsStorage.StatisticType.DEATHS))
-			.lore("&7Taken Damage: &6" + user.getStat(StatsStorage.StatisticType.DAMAGE_TAKEN))
 			.build();
 
-		menu.pane.addItem(GuiItem.of(statsItem), 3,2);
+		menu.pane.addItem(GuiItem.of(statsItem), 3, 2);
 	}
 }

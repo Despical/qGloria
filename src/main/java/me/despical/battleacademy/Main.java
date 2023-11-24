@@ -46,7 +46,7 @@ public class Main extends JavaPlugin {
 	private void setupConfigurationFiles() {
 		this.saveDefaultConfig();
 
-		Stream.of("messages", "stats", "levels").filter(fileName -> !new File(getDataFolder(),fileName + ".yml").exists()).forEach(fileName -> this.saveResource(fileName + ".yml", false));
+		Stream.of("messages", "stats", "levels", "menu").filter(fileName -> !new File(getDataFolder(),fileName + ".yml").exists()).forEach(fileName -> this.saveResource(fileName + ".yml", false));
 	}
 
 	private void saveAllUserStatistics() {
