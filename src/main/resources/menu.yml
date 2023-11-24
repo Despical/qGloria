@@ -1,5 +1,6 @@
 element-menu:
   fire-element:
+    material: CAMPFIRE
     name: "#ff2600&lFire #ff2600⚔"
     lore:
       - ""

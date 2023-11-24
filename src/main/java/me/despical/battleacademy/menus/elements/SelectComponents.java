@@ -10,7 +10,7 @@ public class SelectComponents {
 	public void injectComponents(SelectMenu menu) {
 		final var config = ConfigUtils.getConfig(menu.plugin, "menu");
 
-		var fireItem = new ItemBuilder(XMaterial.CAMPFIRE)
+		var fireItem = new ItemBuilder(XMaterial.matchXMaterial(config.getString("element-menu.fire-element.material")).orElse(XMaterial.CAMPFIRE))
 			.name(config.getString("element-menu.fire-element.name"))
 			.lore(config.getStringList("element-menu.fire-element.lore"))
 			.build();
