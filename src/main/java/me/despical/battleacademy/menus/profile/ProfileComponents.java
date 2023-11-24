@@ -4,6 +4,7 @@ import me.despical.battleacademy.api.StatsStorage;
 import me.despical.commons.item.ItemBuilder;
 import me.despical.commons.item.ItemUtils;
 import me.despical.inventoryframework.GuiItem;
+import org.bukkit.Material;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public class ProfileComponents {
@@ -25,5 +26,15 @@ public class ProfileComponents {
 
 		menu.pane.addItem(GuiItem.of(skullItem), 4, 0);
 
+
+
+		var statsItem = new ItemBuilder(Material.DIAMOND_SWORD)
+			.name("&cStats:")
+			.lore("&7Kills: &6" + user.getStat(StatsStorage.StatisticType.KILLS))
+			.lore("&7Deaths: &6" + user.getStat(StatsStorage.StatisticType.DEATHS))
+			.lore("&7Taken Damage: &6" + user.getStat(StatsStorage.StatisticType.DAMAGE_TAKEN))
+			.build();
+
+		menu.pane.addItem(GuiItem.of(statsItem), 3,2);
 	}
 }

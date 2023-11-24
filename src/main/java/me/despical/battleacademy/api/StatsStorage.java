@@ -36,7 +36,7 @@ public class StatsStorage {
 	public enum StatisticType {
 
 		KILLS("kills", true), DEATHS("deaths", true), LEVEL("level", true),
-		XP("xp", true);
+		XP("xp", true), DAMAGE_TAKEN("taken_damage", true);
 
 		final String statisticName;
 		final boolean persistent;
