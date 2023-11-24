@@ -5,6 +5,7 @@ import me.despical.battleacademy.commands.Commands;
 import me.despical.battleacademy.events.EventListener;
 import me.despical.battleacademy.handlers.ChatManager;
 import me.despical.battleacademy.level.LevelManager;
+import me.despical.battleacademy.user.User;
 import me.despical.battleacademy.user.UserManager;
 import me.despical.commandframework.CommandFramework;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -40,6 +41,7 @@ public class Main extends JavaPlugin {
 
 		new Commands(this);
 
+		User.cooldownHandlerTask();
 		EventListener.registerEvents(this);
 	}
 
