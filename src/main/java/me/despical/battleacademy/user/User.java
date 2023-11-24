@@ -3,6 +3,7 @@ package me.despical.battleacademy.user;
 import lombok.Getter;
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
+import me.despical.battleacademy.elements.base.Element;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,8 @@ public class User {
 
 	private static final Main plugin = JavaPlugin.getPlugin(Main.class);
 	private static long cooldownCounter = 0;
+
+	private @Getter Element element;
 
 	private final @Getter UUID uniqueId;
 	private final Map<String, Double> cooldowns;

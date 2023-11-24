@@ -35,11 +35,15 @@ public class StatsStorage {
 
 	public enum StatisticType {
 
-		KILLS("kills", true), DEATHS("deaths", true), LEVEL("level", true),
-		XP("xp", true);
+		KILLS("kills"), DEATHS("deaths"), LEVEL("level"),
+		XP("xp"), ELEMENT("element");
 
 		final String statisticName;
 		final boolean persistent;
+
+		StatisticType(String statisticName) {
+			this(statisticName, true);
+		}
 
 		StatisticType(String statisticName, boolean persistent) {
 			this.statisticName = statisticName;
