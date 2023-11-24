@@ -29,10 +29,10 @@ public class SelectComponents {
 			.lore(earthItemLore)
 			.build();
 
-		var airItemLore = config.getStringList("element-menu.airelement.lore");
+		var airItemLore = config.getStringList("element-menu.air-element.lore");
 		var airItem = new ItemBuilder(XMaterial.matchXMaterial(config.getString("element-menu.air-element.material")).orElse(XMaterial.SNOWBALL))
 			.name(Utils.center(config.getString("element-menu.air-element.name"), airItemLore))
-			.lore(fireItemLore)
+			.lore(airItemLore)
 			.build();
 
 		menu.pane.addItem(GuiItem.of(fireItem), 1, 1);
