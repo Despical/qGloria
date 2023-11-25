@@ -18,23 +18,29 @@ import java.util.regex.Pattern;
 public class Utils {
 
 	public static Element getElement(User user) {
-		return switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
+		var element =  switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
 			case 1 -> new FireElement(user);
 			case 2 -> new IceElement(user);
 			case 3 -> new EarthElement(user);
 			case 4 -> new AirElement(user);
 			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 		};
+
+		element.initialize();
+		return element;
 	}
 
 	public static Element getElementFromId(User user, int id) {
-		return switch (id) {
+		var element = switch (id) {
 			case 1 -> new FireElement(user);
 			case 2 -> new IceElement(user);
 			case 3 -> new EarthElement(user);
 			case 4 -> new AirElement(user);
 			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 		};
+
+		element.initialize();
+		return element;
 	}
 
 	public static String center(String title, List<String> lore) {

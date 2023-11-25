@@ -17,16 +17,13 @@ public class AirElement extends Element {
 		this.fireDefence = -15;
 		this.defense = -10;
 		this.speed = 7;
+		this.attackSpeed = -15;
 	}
 
 	@Override
 	public void registerPassives() {
-		var airSharpness = new Passive("air_sharpness", 20, false);
-		airSharpness.setInitializer(player -> {
-			if (player.getType().name().contains("SWORD")) {
-				AttributeUtils.setAttackCooldown(player, player.getAttackCooldown() * (115 / 100F));
-			}
-		});
+		var airSharpness = new Passive("air_sharpness", 1, false); // level - 20
+		airSharpness.setInitializer(player -> AttributeUtils.setAttackCooldown(player, 4D * (((100D + (double) attackSpeed) / 100D))));
 
 		var fragile = new Passive("fragile", 1, false);
 		fragile.setListener(new Listener() {
@@ -36,7 +33,7 @@ public class AirElement extends Element {
 				if (e.getDamager() instanceof Player && !(e.getEntity() instanceof Player)) return;
 				if (!isPassiveEnabled(fragile))	return;
 
-				e.setDamage(e.getDamage() * (108 / 100D));
+				e.setDamage(e.getDamage() * (108D / 100D));
 			}
 		});
 

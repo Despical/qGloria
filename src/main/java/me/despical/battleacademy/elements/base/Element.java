@@ -16,22 +16,12 @@ public abstract class Element {
 	protected @Getter final int id;
 	protected final User user;
 
-	protected int attack, speed, fireDefence, lavaDefense, fallDamage, defense;
+	protected int attack, speed, fireDefence, lavaDefense, fallDamage, defense, attackSpeed;
 
 	public Element(User user, int id) {
 		this.user = user;
 		this.id = id;
 		this.passives = new ArrayList<>();
-
-		registerPassives();
-		adjustSpeed();
-
-		passives.forEach(passive -> {
-			passive.registerEvents(plugin);
-
-			if (passive.getInitializer() != null)
-				passive.getInitializer().accept(user.getPlayer());
-		});
 	}
 
 	public void addPassive(Passive... passive) {
@@ -39,6 +29,18 @@ public abstract class Element {
 	}
 
 	public abstract void registerPassives();
+
+	public void initialize() {
+		adjustSpeed();
+		registerPassives();
+
+		passives.forEach(passive -> {
+			passive.registerEvents();
+
+			if (passive.getInitializer() != null)
+				passive.getInitializer().accept(user.getPlayer());
+		});
+	}
 
 	protected boolean isPassiveEnabled(Passive passive) {
 		return user.getLevel() >= passive.getEnableAt();

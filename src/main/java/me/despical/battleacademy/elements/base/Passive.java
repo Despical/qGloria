@@ -3,7 +3,6 @@ package me.despical.battleacademy.elements.base;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import me.despical.battleacademy.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
@@ -25,7 +24,7 @@ public class Passive {
 	@Setter
 	private Consumer<Player> initializer;
 
-	void registerEvents(Main plugin) {
-		if (listener != null) plugin.getServer().getPluginManager().registerEvents(listener, plugin);
+	void registerEvents() {
+		if (listener != null) Element.plugin.getServer().getPluginManager().registerEvents(listener, Element.plugin);
 	}
 }
