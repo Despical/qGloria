@@ -4,10 +4,12 @@ import me.despical.battleacademy.elements.base.Element;
 import me.despical.battleacademy.elements.base.Passive;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.miscellaneous.AttributeUtils;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 public class AirElement extends Element {
 
@@ -22,7 +24,7 @@ public class AirElement extends Element {
 
 	@Override
 	public void registerPassives() {
-		var airSharpness = new Passive("air_sharpness", 1, false); // level - 20
+		var airSharpness = new Passive("air_sharpness", 20, false);
 		airSharpness.setInitializer(player -> AttributeUtils.setAttackCooldown(player, 4D * (((100D + (double) attackSpeed) / 100D))));
 
 		var fragile = new Passive("fragile", 1, false);
@@ -37,6 +39,36 @@ public class AirElement extends Element {
 			}
 		});
 
-		addPassive(airSharpness, fragile);
+		var doubleJump = new Passive("double_jump", 1, false);
+		doubleJump.setInitializer(player -> {
+			plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
+				if (player.getGameMode() != GameMode.SURVIVAL) return;
+
+                player.setAllowFlight(!(user.getCooldown("double_jump") > 0));
+			}, 20L, 20L);
+		});
+
+		doubleJump.setListener(new Listener() {
+
+			@EventHandler
+			public void onDoubleJump(PlayerToggleFlightEvent event) {
+				final var player = event.getPlayer();
+
+				if (!event.isFlying() || player.getGameMode() != GameMode.SURVIVAL) return;
+
+				final var user = plugin.getUserManager().getUser(player);
+
+				if (user.getCooldown("double_jump") > 0) return;
+
+				event.setCancelled(true);
+
+				user.setCooldown("double_jump", 2);
+
+				player.setFlying(false);
+				player.setVelocity(player.getLocation().getDirection().multiply(1.5D).setY(0.7D));
+			}
+		});
+
+		addPassive(airSharpness, fragile, doubleJump);
 	}
 }
