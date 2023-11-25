@@ -46,6 +46,7 @@ public class AirElement extends Element {
 				if (!isPassiveEnabled(fragile)) {
 					return;
 				}
+				//x
 
 				e.setDamage(e.getDamage() * 108/100D);
 			}
