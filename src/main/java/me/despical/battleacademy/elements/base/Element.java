@@ -2,6 +2,7 @@ package me.despical.battleacademy.elements.base;
 
 import lombok.Getter;
 import me.despical.battleacademy.Main;
+import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.user.User;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -43,7 +44,7 @@ public abstract class Element {
 	}
 
 	protected boolean isPassiveEnabled(Passive passive) {
-		return user.getLevel() >= passive.getEnableAt();
+		return user.getStat(StatsStorage.StatisticType.ELEMENT) == id && user.getLevel() >= passive.getEnableAt();
 	}
 
 	private void adjustSpeed() {

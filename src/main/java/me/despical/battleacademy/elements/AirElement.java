@@ -43,13 +43,11 @@ public class AirElement extends Element {
 		});
 
 		var doubleJump = new Passive("double_jump", 25, false);
-		doubleJump.setInitializer(player -> {
-			plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
-				if (player.getGameMode() != GameMode.SURVIVAL) return;
+		doubleJump.setInitializer(player -> plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
+			if (player.getGameMode() != GameMode.SURVIVAL) return;
 
-                player.setAllowFlight(!(user.getCooldown("double_jump") > 0));
-			}, 20L, 20L);
-		});
+			player.setAllowFlight(!(user.getCooldown("double_jump") > 0));
+		}, 20L, 20L));
 
 		doubleJump.setListener(new Listener() {
 
