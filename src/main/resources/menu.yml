@@ -46,7 +46,7 @@ element-menu:
 
   earth-element:
     material: PITCHER_POD
-    name: "#9c835f&lEarth #9c835f🪨"
+    name: "#9c835f&lEarth #9c835f🪨 "
     lore:
       - ""
       - "&7Earth elemental has high defence, high saturation,"

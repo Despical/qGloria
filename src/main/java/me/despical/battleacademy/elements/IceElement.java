@@ -11,7 +11,7 @@ public class IceElement extends Element {
 
 	public IceElement(User user) {
 		super(user, 2);
-		this.speed = 3;
+		this.speed = 5;
 		this.attack = -3;
 		this.fireDefence = -7;
 		this.lavaDefense = -5;
@@ -28,17 +28,18 @@ public class IceElement extends Element {
 
 		var depthStrider = new Passive("depth_strider", 7, false);
 		depthStrider.setInitializer(player -> {
-			int level = 1, userLevel = user.getLevel();
+			int level = 0, userLevel = user.getLevel();
 
 			if (NumberUtils.isBetween(userLevel, 15, 20))
+				level = 1;
+			else if (NumberUtils.isBetween(userLevel, 21, 25))
 				level = 2;
-			else if (NumberUtils.isBetween(userLevel, 21, 25)) level = 3;
 
 			player.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, level, false, false, false));
 		});
 
 		addPassive(breathUnderwater, depthStrider);
 
-		plugin.getServer().getPluginManager().registerEvents(breathUnderwater.getListener(), plugin);
+		user.getPlayer().setWalkSpeed(.2F * ((100F + speed) / 100F));
 	}
 }

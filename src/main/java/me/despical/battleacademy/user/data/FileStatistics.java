@@ -3,6 +3,7 @@ package me.despical.battleacademy.user.data;
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.user.User;
+import me.despical.battleacademy.util.Utils;
 import me.despical.commons.configuration.ConfigUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +48,9 @@ public non-sealed class FileStatistics extends IUserDatabase {
 		var levelManager = plugin.getLevelManager();
 
 		levelManager.updatePlayerSpeed(user);
-		levelManager.updatePlayerSpeed(user);
+		levelManager.updateAttackSpeed(user);
+
+		if (user.getStat(StatsStorage.StatisticType.ELEMENT) != 0)
+			user.setElement(Utils.getElement(user));
 	}
 }

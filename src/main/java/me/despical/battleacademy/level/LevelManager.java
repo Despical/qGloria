@@ -43,7 +43,7 @@ public class LevelManager {
 			updateAttackSpeed(user);
 			updatePlayerSpeed(user);
 
-			user.sendRawMessage("Seviye atladın, yeni seviyen: %d", user.getStat(StatsStorage.StatisticType.LEVEL));
+			user.sendMessage("level-messages.new-level");
 		}
 	}
 

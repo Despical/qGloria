@@ -1,2 +1,8 @@
 commands:
   did-you-mean: "&3Did you mean &b/%command%?"
+
+level-messages:
+  new-level: ""
+
+element-messages:
+  cannot-change-element: "&cYou can not change your element once you select!"

@@ -52,6 +52,7 @@ public class Commands {
 		user.sendRawMessage("Level: %d\nXP: %d", user.getStat(StatsStorage.StatisticType.LEVEL), user.getStat(StatsStorage.StatisticType.XP));
 		user.sendRawMessage("Kills: " + user.getStat(StatsStorage.StatisticType.KILLS));
 		user.sendRawMessage("Death: " + user.getStat(StatsStorage.StatisticType.DEATHS));
+		user.sendRawMessage("Element: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 	}
 
 	@Command(

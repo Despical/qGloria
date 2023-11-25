@@ -4,7 +4,6 @@ import me.despical.battleacademy.elements.base.Element;
 import me.despical.battleacademy.elements.base.Passive;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.miscellaneous.AttributeUtils;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,8 +11,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class AirElement extends Element {
 
-
-	public AirElement(User user, int id) {
+	public AirElement(User user) {
 		super(user, 4);
 		this.fallDamage = -40;
 		this.fireDefence = -15;
@@ -23,16 +21,10 @@ public class AirElement extends Element {
 
 	@Override
 	public void registerPassives() {
-
-		var AirSharpness = new Passive("air_sharpness", 20, false);
-		AirSharpness.setInitializer(player -> {
-			boolean sword1 = player.getItemInHand().getType() == (Material.STONE_SWORD);
-			boolean sword2 = player.getItemInHand().getType() == (Material.IRON_SWORD);
-			boolean sword3 = player.getItemInHand().getType() == (Material.DIAMOND_SWORD);
-			boolean sword4 = player.getItemInHand().getType() == (Material.NETHERITE_SWORD);
-
-			if (sword1 || sword2 || sword3 ||sword4) {
-				AttributeUtils.setAttackCooldown(player, player.getAttackCooldown() * (115/100F));
+		var airSharpness = new Passive("air_sharpness", 20, false);
+		airSharpness.setInitializer(player -> {
+			if (player.getType().name().contains("SWORD")) {
+				AttributeUtils.setAttackCooldown(player, player.getAttackCooldown() * (115 / 100F));
 			}
 		});
 
@@ -40,18 +32,14 @@ public class AirElement extends Element {
 		fragile.setListener(new Listener() {
 
 			@EventHandler
-			public void fragile(EntityDamageByEntityEvent e) {
-				if (e.getDamager() instanceof Player) return;
-				if (!(e.getEntity() instanceof Player)) return;
-				if (!isPassiveEnabled(fragile)) {
-					return;
-				}
-				//x
+			public void onEntityDamage(EntityDamageByEntityEvent e) {
+				if (e.getDamager() instanceof Player && !(e.getEntity() instanceof Player)) return;
+				if (!isPassiveEnabled(fragile))	return;
 
-				e.setDamage(e.getDamage() * 108/100D);
+				e.setDamage(e.getDamage() * (108 / 100D));
 			}
 		});
 
-
+		addPassive(airSharpness, fragile);
 	}
 }

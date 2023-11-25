@@ -52,6 +52,10 @@ public class User {
 		return plugin.getServer().getPlayer(uniqueId);
 	}
 
+	public void closeInventory() {
+		getPlayer().closeInventory();
+	}
+
 	public int getStat(StatsStorage.StatisticType statisticType) {
 		return statistics.computeIfAbsent(statisticType, stat -> 0);
 	}
@@ -71,6 +75,16 @@ public class User {
 
 	public void addStat(StatsStorage.StatisticType stat, int value) {
 		setStat(stat, getStat(stat) + value);
+	}
+
+	public void setElement(Element element) {
+		this.setStat(StatsStorage.StatisticType.ELEMENT, element.getId());
+		this.element = element;
+
+		var userManager = plugin.getUserManager();
+
+		if (userManager != null)
+			userManager.saveStatistic(this, StatsStorage.StatisticType.ELEMENT);
 	}
 
 	public void setCooldown(String s, double seconds) {

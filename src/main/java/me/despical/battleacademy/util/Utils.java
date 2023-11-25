@@ -1,5 +1,12 @@
 package me.despical.battleacademy.util;
 
+import me.despical.battleacademy.api.StatsStorage;
+import me.despical.battleacademy.elements.AirElement;
+import me.despical.battleacademy.elements.EarthElement;
+import me.despical.battleacademy.elements.FireElement;
+import me.despical.battleacademy.elements.IceElement;
+import me.despical.battleacademy.elements.base.Element;
+import me.despical.battleacademy.user.User;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
@@ -9,6 +16,26 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Utils {
+
+	public static Element getElement(User user) {
+		return switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
+			case 1 -> new FireElement(user);
+			case 2 -> new IceElement(user);
+			case 3 -> new EarthElement(user);
+			case 4 -> new AirElement(user);
+			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
+		};
+	}
+
+	public static Element getElementFromId(User user, int id) {
+		return switch (id) {
+			case 1 -> new FireElement(user);
+			case 2 -> new IceElement(user);
+			case 3 -> new EarthElement(user);
+			case 4 -> new AirElement(user);
+			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
+		};
+	}
 
 	public static String center(String title, List<String> lore) {
 		var j = lore.stream().map(Utils::lengthWithoutColors).max(Comparator.naturalOrder()).get();
