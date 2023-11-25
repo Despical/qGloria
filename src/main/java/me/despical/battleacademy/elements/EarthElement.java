@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockGrowEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class EarthElement extends Element {
@@ -24,13 +25,14 @@ public class EarthElement extends Element {
 	@Override
 	public void registerPassives() {
 
-		var AutoSmelt = new Passive("auto_smelt", 5, false);
-
-		AutoSmelt.setListener(new Listener() {
-
+		var autoSmelt = new Passive("auto_smelt", 5, false);
+		autoSmelt.setListener(new Listener() {
 
 			@EventHandler
 			public void AutoSmelt(BlockBreakEvent e) {
+
+				if (!isPassiveEnabled(autoSmelt)) return;
+
 				Player player = (Player) e.getPlayer();
 				Block block = (Block) e.getBlock();
 
@@ -98,6 +100,25 @@ public class EarthElement extends Element {
 					}
 				}
 
+
+			}
+		});
+
+		var FastGrow = new Passive("fast_grow", 8, false);
+		FastGrow.setListener(new Listener() {
+
+			@EventHandler
+			public void FastGrow(BlockGrowEvent e) {
+
+				switch (e.getBlock().getType()) {
+					case WHEAT:
+						//getblock data yapıp datasını alıp + 0.5 yapacaktım fakat eskiden olan bir şeymiş 45dk
+						// araştırdım bulamadım sen yap bunu if else de denedim ne denediysem olmadı.
+
+						// S İ K E C E M -yakisikligeymir2011
+
+
+				}
 
 			}
 		});

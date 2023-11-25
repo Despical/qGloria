@@ -7,9 +7,9 @@ import me.despical.commons.number.NumberUtils;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class IcePassive extends Element {
+public class IceElement extends Element {
 
-	public IcePassive(User user) {
+	public IceElement(User user) {
 		super(user, 2);
 		this.speed = 3;
 		this.attack = -3;
