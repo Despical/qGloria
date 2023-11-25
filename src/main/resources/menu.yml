@@ -39,8 +39,8 @@ element-menu:
       - "#424242• #d99e3fIce Imprisonment: #999999Trap enemies in water, restricting their movement."
       - ""
       - "#43a4e6&lCore Values:"
-      - "#424242• #d99e3fAttack: #A93226-3%"
       - "#424242• #d99e3fSpeed: #30ff49+3%"
+      - "#424242• #d99e3fAttack: #A93226-3%"
       - "#424242• #d99e3fFire Defense: #A93226-7%"
       - "#424242• #d99e3fLava Defense: #A93226-5%"
 
@@ -66,9 +66,11 @@ element-menu:
       - "#424242• #d99e3fStone Arrow Rain: #999999Send a barrage of stone arrows to a"
       - "#999999specific area, dealing damage to enemies."
       - ""
-      - "    #23b034&lBuff               &7|           #A93226&lNerf:"
-      - "#424242• #d99e3fLava Defense: #30ff49+2%        #424242• #d99e3fSpeed: #f76152-5%"
-      - "#424242• #d99e3fDefense: #30ff49+5%             #424242• #d99e3fFall Damage: #f76152+10%"
+      - "#fff6de&lCore Values:"
+      - "#424242• #d99e3fLava Defense: #30ff49+2%"
+      - "#424242• #d99e3fDefense: #30ff49+5%"
+      - "#424242• #d99e3fFall Damage: #f76152+10%"
+      - "#424242• #d99e3fSpeed: #f76152-5%"
 
   air-element:
     material: SNOWBALL

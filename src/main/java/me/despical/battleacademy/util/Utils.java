@@ -12,7 +12,7 @@ public class Utils {
 
 	public static String center(String title, List<String> lore) {
 		var j = lore.stream().map(Utils::lengthWithoutColors).max(Comparator.naturalOrder()).get();
-		var spaces = j / 2 + lengthWithoutColors(title);
+		var spaces = j / 2 + lengthWithoutColors(title) - 2;
 
 		return " ".repeat(Math.max(0, spaces)) + title;
 	}
