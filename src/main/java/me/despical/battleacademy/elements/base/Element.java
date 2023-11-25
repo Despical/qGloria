@@ -24,10 +24,13 @@ public abstract class Element {
 		this.passives = new ArrayList<>();
 
 		registerPassives();
+		adjustSpeed();
 
 		passives.forEach(passive -> {
 			passive.registerEvents(plugin);
-			passive.getInitializer().accept(user.getPlayer());
+
+			if (passive.getInitializer() != null)
+				passive.getInitializer().accept(user.getPlayer());
 		});
 	}
 
@@ -39,5 +42,9 @@ public abstract class Element {
 
 	protected boolean isPassiveEnabled(Passive passive) {
 		return user.getLevel() >= passive.getEnableAt();
+	}
+
+	private void adjustSpeed() {
+		user.getPlayer().setWalkSpeed(.2F * ((100F + speed) / 100F));
 	}
 }

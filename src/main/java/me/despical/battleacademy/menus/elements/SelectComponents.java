@@ -1,6 +1,5 @@
 package me.despical.battleacademy.menus.elements;
 
-import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.user.User;
 import me.despical.battleacademy.util.Utils;
 import me.despical.commons.compat.XMaterial;
@@ -58,10 +57,11 @@ public class SelectComponents {
 
 	private Consumer<InventoryClickEvent> event(User user, int id) {
 		return (event) -> {
-			if (user.getStat(StatsStorage.StatisticType.LEVEL) != 0) {
-				user.sendMessage("element-messages.cannot-change-element");
-				return;
-			}
+			// TODO: 25.11.2023 - Enable selecting elements
+//			if (user.getStat(StatsStorage.StatisticType.LEVEL) != 0) {
+//				user.sendMessage("element-messages.cannot-change-element");
+//				return;
+//			}
 
 			user.setElement(Utils.getElementFromId(user, id));
 			user.closeInventory();

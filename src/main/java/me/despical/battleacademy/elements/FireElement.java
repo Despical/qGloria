@@ -33,7 +33,5 @@ public class FireElement extends Element {
 		});
 
 		addPassive(flameArmor);
-
-		plugin.getServer().getPluginManager().registerEvents(flameArmor.getListener(), plugin);
 	}
 }

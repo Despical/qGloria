@@ -39,7 +39,5 @@ public class IceElement extends Element {
 		});
 
 		addPassive(breathUnderwater, depthStrider);
-
-		user.getPlayer().setWalkSpeed(.2F * ((100F + speed) / 100F));
 	}
 }
