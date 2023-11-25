@@ -10,6 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
+import org.bukkit.event.player.PlayerToggleSneakEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class AirElement extends Element {
 
@@ -31,15 +34,15 @@ public class AirElement extends Element {
 		fragile.setListener(new Listener() {
 
 			@EventHandler
-			public void onEntityDamage(EntityDamageByEntityEvent e) {
-				if (e.getDamager() instanceof Player && !(e.getEntity() instanceof Player)) return;
+			public void onEntityDamage(EntityDamageByEntityEvent event) {
+				if (event.getDamager() instanceof Player && !(event.getEntity() instanceof Player)) return;
 				if (!isPassiveEnabled(fragile))	return;
 
-				e.setDamage(e.getDamage() * (108D / 100D));
+				event.setDamage(event.getDamage() * (108D / 100D));
 			}
 		});
 
-		var doubleJump = new Passive("double_jump", 1, false);
+		var doubleJump = new Passive("double_jump", 25, false);
 		doubleJump.setInitializer(player -> {
 			plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
 				if (player.getGameMode() != GameMode.SURVIVAL) return;
@@ -52,6 +55,8 @@ public class AirElement extends Element {
 
 			@EventHandler
 			public void onDoubleJump(PlayerToggleFlightEvent event) {
+				if (!isPassiveEnabled(doubleJump)) return;
+
 				final var player = event.getPlayer();
 
 				if (!event.isFlying() || player.getGameMode() != GameMode.SURVIVAL) return;
@@ -69,6 +74,21 @@ public class AirElement extends Element {
 			}
 		});
 
-		addPassive(airSharpness, fragile, doubleJump);
+		var swiftFeet = new Passive("swift_feet", 15, false);
+		swiftFeet.setListener(new Listener() {
+
+			@EventHandler
+			public void onSneak(PlayerToggleSneakEvent event) {
+				if (!isPassiveEnabled(swiftFeet)) return;
+				var player = event.getPlayer();
+
+				if (player.getFallDistance() < 1) return;
+
+				if (!player.hasPotionEffect(PotionEffectType.SLOW_FALLING))
+					player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 5 * 20, 0, false, false, false));
+			}
+		});
+
+		addPassive(airSharpness, fragile, doubleJump, swiftFeet);
 	}
 }
