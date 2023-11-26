@@ -44,6 +44,7 @@ public class LevelManager {
 			updatePlayerSpeed(user);
 
 			user.sendMessage("level-messages.new-level");
+			user.sendTitle("level-messages.level-up-title","level-messages.level-up-subtitle");
 		}
 	}
 

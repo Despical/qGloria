@@ -3,6 +3,8 @@ commands:
 
 level-messages:
   new-level: "level up"
+  level-up-title: "#424242&l[&l#37ff1c&lLEVEL UP!#424242]"
+  level-up-subtitle: "&#eaff2eNew level: %level%"
 
 element-messages:
   cannot-change-element: "&cYou can not change your element once you select!"
