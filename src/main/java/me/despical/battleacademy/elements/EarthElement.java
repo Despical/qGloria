@@ -4,19 +4,25 @@ import me.despical.battleacademy.elements.base.Element;
 import me.despical.battleacademy.elements.base.Passive;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.compat.XMaterial;
-import org.bukkit.Material;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockGrowEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class EarthElement extends Element {
 
@@ -109,7 +115,7 @@ public class EarthElement extends Element {
 			}
 		});
 
-		var fastGrow = new Passive("fast_grow", 1, false); // 8
+		var fastGrow = new Passive("fast_grow", 8, false);
 		fastGrow.setListener(new Listener() {
 
 			private List<Block> crops = new ArrayList<>();
@@ -156,6 +162,71 @@ public class EarthElement extends Element {
 			}
 		});
 
-		addPassive(autoSmelt, fastGrow);
+		var herbalRemedy = new Passive("herbal_remedy", 1, false);
+		herbalRemedy.setInitializer(player -> {
+			plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
+				var location = player.getLocation();
+				var crops = new ArrayList<Block>();
+
+				for (final var block : getNearbyBlocks(location, 2)) {
+					if (FLOWERS.contains(block.getType().name()))
+						crops.add(block);
+				}
+
+				int i = 1;
+
+				for (var block : crops) {
+					if (i++ <= 5) {
+						player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20 * 3, crops.size() - 1, false, false, false));
+					}
+
+					new BukkitRunnable() {
+						final Location startLoc = block.getLocation().clone().add(.5, .2, .5);
+						final Location particleLoc = startLoc.clone();
+						final World world = startLoc.getWorld();
+						int ticks = 0, beamLength = 0;
+						final int maxBeamLength = 7;
+
+						public void run() {
+							ticks++;
+
+								Location targetLoc = player.getLocation().clone().add(0, .5, 0);
+								Vector vecOffset = targetLoc.clone().subtract(particleLoc).toVector().normalize();
+
+								if (beamLength++ >= maxBeamLength) {
+									this.cancel();
+									return;
+								}
+
+								particleLoc.add(vecOffset);
+
+								world.spawnParticle(Particle.VILLAGER_HAPPY, particleLoc.clone().subtract(vecOffset), 0);
+						}
+					}.runTaskTimer(plugin, 0, 1);
+
+				}
+
+				crops.clear();
+			}, 20L, 10L);
+		});
+
+		addPassive(autoSmelt, fastGrow, herbalRemedy);
+	}
+
+	private static final Set<String> FLOWERS = Set.of("DEAD_BUSH", "DANDELION", "POPPY", "BLUE_ORCHID", "ALLIUM", "AZURE_BLUET",
+		"TULIP", "DAISY", "FLOWER", "LILY", "ROSE", "BLOSSOM", "MUSHROOM", "FUNGUS", "ROOTS", "SPROUTS");
+
+	private List<Block> getNearbyBlocks(Location location, int radius) {
+		var blocks = new ArrayList<Block>();
+
+		for (int x = location.getBlockX() - radius; x <= location.getBlockX() + radius; x++) {
+			for (int y = location.getBlockY() - radius; y <= location.getBlockY() + radius; y++) {
+				for (int z = location.getBlockZ() - radius; z <= location.getBlockZ() + radius; z++) {
+					blocks.add(location.getWorld().getBlockAt(x, y, z));
+				}
+			}
+		}
+
+		return blocks;
 	}
 }
