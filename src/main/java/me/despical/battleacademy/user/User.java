@@ -4,8 +4,12 @@ import lombok.Getter;
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.elements.base.Element;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -95,6 +99,25 @@ public class User {
 		final Double cooldown = cooldowns.get(s);
 
 		return (cooldown == null || cooldown <= cooldownCounter) ? 0 : cooldown - cooldownCounter;
+	}
+
+	public void sendTitle(@Nullable String titlePath, @Nullable String subtitlePath) {
+		final var chatManager = plugin.getChatManager();
+
+		this.sendRawTitle(titlePath == null ? "" : chatManager.message(titlePath), subtitlePath == null ? "" : chatManager.message(subtitlePath));
+	}
+
+	public void sendRawTitle(@Nullable String title, @Nullable String subtitle) {
+		this.sendForcedRawTitle(title, subtitle);
+	}
+
+	public void sendForcedRawTitle(@Nullable String title, @Nullable String subtitle) {
+		me.despical.commons.compat.Titles.sendTitle(this.getPlayer(), 5, 60, 5, title, subtitle);
+	}
+
+	@SuppressWarnings("all")
+	public void sendActionBar(@NotNull String message) {
+		this.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
 	}
 
 	public static void cooldownHandlerTask() {
