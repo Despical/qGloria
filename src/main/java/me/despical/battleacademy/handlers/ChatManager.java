@@ -25,6 +25,7 @@ public class ChatManager {
 		String message = this.message(path);
 
 		message = message.replace("%player%", user.getName());
+		message = message.replace("%level%", Integer.toString(user.getLevel()));
 		return message;
 	}
 

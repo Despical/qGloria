@@ -104,7 +104,7 @@ public class User {
 	public void sendTitle(@Nullable String titlePath, @Nullable String subtitlePath) {
 		final var chatManager = plugin.getChatManager();
 
-		this.sendRawTitle(titlePath == null ? "" : chatManager.message(titlePath), subtitlePath == null ? "" : chatManager.message(subtitlePath));
+		this.sendRawTitle(titlePath == null ? "" : chatManager.message(titlePath, this), subtitlePath == null ? "" : chatManager.message(subtitlePath, this));
 	}
 
 	public void sendRawTitle(@Nullable String title, @Nullable String subtitle) {
