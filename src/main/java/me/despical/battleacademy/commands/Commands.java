@@ -62,7 +62,7 @@ public class Commands {
 				item.setItemMeta(meta);
 				item.addUnsafeEnchantment(EnchantmentManager.FLAME_ARROWS, 1);
 
-				player.sendMessage("Flame Arrows eklendi");
+				player.sendMessage("Flame Arrows added!");
 			}
 
 			case 2 -> {
@@ -72,8 +72,19 @@ public class Commands {
 				item.setItemMeta(meta);
 				item.addUnsafeEnchantment(EnchantmentManager.QUICK_FEET, 1);
 
-				player.sendMessage("Quick Feet eklendi");
+				player.sendMessage("Quick Feet added!");
 			}
+
+			case 3 -> {
+				var item = player.getItemInHand();
+				var meta = item.getItemMeta();
+				meta.setLore(List.of(Strings.format("&7Rising Arrows I")));
+				item.setItemMeta(meta);
+				item.addUnsafeEnchantment(EnchantmentManager.RISING_ARROWS, 1);
+
+				player.sendMessage("Rising Arrows added!");
+			}
+
 		}
 
 	}

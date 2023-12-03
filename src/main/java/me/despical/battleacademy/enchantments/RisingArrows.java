@@ -3,19 +3,22 @@ package me.despical.battleacademy.enchantments;
 import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.battleacademy.enchantments.base.CustomEnchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityShootBowEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
-public class FlameArrows extends CustomEnchantment {
+public class RisingArrows extends CustomEnchantment {
 
-	public FlameArrows() {
-		super("flame_arrows", "FlameArrows", 1);
+	public RisingArrows() {
+		super("rising_arrows", "RisingArrows", 1);
 	}
 
 	@Override
@@ -23,21 +26,20 @@ public class FlameArrows extends CustomEnchantment {
 		return new Listener() {
 
 			@EventHandler
-			public void onDamage(EntityShootBowEvent event) {
-				if (!(event.getEntity() instanceof Player player)) return; // Check if shooter is a player
-				if (event.getBow().getItemMeta() == null) return; // Check if bow has an item meta
-				if (!event.getBow().getItemMeta().hasEnchant(FlameArrows.this)) return; // Check if bow has our custom enchantment
-				if (!plugin.getUserManager().getUser(player).isEnchantmentCompatible(FlameArrows.this)) return; // Check if user's element is compatible with enchantment
-				if (player.getLocation().getNearbyEntitiesByType(Player.class, 8).size() > 2) { // Check if there are enough players nearby
-					event.getProjectile().setFireTicks(20 * 10); // Fire the arrow
-				}
+			public void onDamage(EntityDamageByEntityEvent event) {
+				if (!(event.getDamager() instanceof Arrow arrow && arrow.getShooter() instanceof Player shooter && event.getEntity() instanceof Player player)) return;
+				if (arrow.getItemStack().getItemMeta() == null) return;
+				if (!arrow.getItemStack().getItemMeta().hasEnchant(RisingArrows.this)) return;
+				if (!plugin.getUserManager().getUser(shooter).isEnchantmentCompatible(RisingArrows.this)) return;
+
+				player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 100, 0, false, false, false));
 			}
 		};
 	}
 
 	@Override
 	public int getElement() {
-		return 1;
+		return 4;
 	}
 
 	@Override
@@ -55,3 +57,4 @@ public class FlameArrows extends CustomEnchantment {
 		return Set.of(EquipmentSlot.HAND);
 	}
 }
+
