@@ -4,8 +4,11 @@ import me.despical.battleacademy.elements.base.Element;
 import me.despical.battleacademy.elements.base.Passive;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.number.NumberUtils;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.List;
 
 public class IceElement extends Element {
 
@@ -15,6 +18,11 @@ public class IceElement extends Element {
 		this.attack = -3;
 		this.fireDefence = -7;
 		this.lavaDefense = -5;
+	}
+
+	@Override
+	public List<Enchantment> getEnchantments() {
+		return null;
 	}
 
 	@Override

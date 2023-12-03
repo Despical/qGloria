@@ -2,13 +2,18 @@ package me.despical.battleacademy.commands;
 
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
+import me.despical.battleacademy.enchantments.base.EnchantmentManager;
 import me.despical.battleacademy.menus.elements.SelectMenu;
 import me.despical.battleacademy.menus.profile.ProfileMenu;
 import me.despical.commandframework.Command;
 import me.despical.commandframework.CommandArguments;
 import me.despical.commandframework.Completer;
 import me.despical.commons.string.StringMatcher;
+import me.despical.commons.util.Strings;
+import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +45,19 @@ public class Commands {
 	)
 	public void mainCommand(CommandArguments arguments) {
 		arguments.sendMessage("main command");
+	}
+
+	@Command(
+		name = "battleacademy.enchantment"
+	)
+	public void enchantCommand(CommandArguments arguments) {
+		Player player = arguments.getSender();
+
+		var item = player.getItemInHand();
+		var meta = player.getItemInHand().getItemMeta();
+		meta.setLore(List.of(Strings.format("&7Flame Arrows I")));
+		item.setItemMeta(meta);
+		item.addUnsafeEnchantment(EnchantmentManager.FLAME_ARROWS, 1);
 	}
 
 	@Command(
@@ -75,7 +93,9 @@ public class Commands {
 		name = "battleacademy"
 	)
 	public List<String> completer(CommandArguments arguments) {
-		return List.of("stats", "profile", "select");
-	}
+		List<String> completions = new ArrayList<>(), commands = plugin.getCommandFramework().getSubCommands().stream().map(cmd -> cmd.name().split("\\.")[1]).toList();
 
+		StringUtil.copyPartialMatches(arguments.getArgument(0), commands, completions);
+		return completions;
+	}
 }

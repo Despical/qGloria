@@ -2,11 +2,15 @@ package me.despical.battleacademy.elements;
 
 import me.despical.battleacademy.elements.base.Element;
 import me.despical.battleacademy.elements.base.Passive;
+import me.despical.battleacademy.enchantments.base.EnchantmentManager;
 import me.despical.battleacademy.user.User;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+
+import java.util.List;
 
 public class FireElement extends Element {
 
@@ -14,6 +18,11 @@ public class FireElement extends Element {
 		super(user, 1);
 		this.attack = 5;
 		this.speed = -3;
+	}
+
+	@Override
+	public List<Enchantment> getEnchantments() {
+		return List.of(EnchantmentManager.FLAME_ARROWS);
 	}
 
 	@Override

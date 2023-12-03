@@ -5,6 +5,7 @@ import me.despical.battleacademy.elements.base.Passive;
 import me.despical.battleacademy.user.User;
 import me.despical.commons.miscellaneous.AttributeUtils;
 import org.bukkit.GameMode;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +14,8 @@ import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.List;
 
 public class AirElement extends Element {
 
@@ -23,6 +26,11 @@ public class AirElement extends Element {
 		this.defense = -10;
 		this.speed = 7;
 		this.attackSpeed = -15;
+	}
+
+	@Override
+	public List<Enchantment> getEnchantments() {
+		return null;
 	}
 
 	@Override

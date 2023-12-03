@@ -7,8 +7,7 @@ import me.despical.commons.compat.XMaterial;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.LivingEntity;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,6 +31,11 @@ public class EarthElement extends Element {
 		this.defense = 5;
 		this.fallDamage = 10;
 		this.speed = -5;
+	}
+
+	@Override
+	public List<Enchantment> getEnchantments() {
+		return null;
 	}
 
 	@Override

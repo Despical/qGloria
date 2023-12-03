@@ -4,6 +4,7 @@ import lombok.Getter;
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.user.User;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public abstract class Element {
 	}
 
 	public abstract void registerPassives();
+
+	public abstract List<Enchantment> getEnchantments();
 
 	public void initialize() {
 		adjustSpeed();

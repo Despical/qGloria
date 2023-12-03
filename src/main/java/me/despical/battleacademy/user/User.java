@@ -4,6 +4,7 @@ import lombok.Getter;
 import me.despical.battleacademy.Main;
 import me.despical.battleacademy.api.StatsStorage;
 import me.despical.battleacademy.elements.base.Element;
+import me.despical.battleacademy.enchantments.base.CustomEnchantment;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
@@ -118,6 +119,10 @@ public class User {
 	@SuppressWarnings("all")
 	public void sendActionBar(@NotNull String message) {
 		this.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
+	}
+
+	public boolean isEnchantmentCompatible(CustomEnchantment enchantment) {
+		return enchantment.getElement() == element.getId();
 	}
 
 	public static void cooldownHandlerTask() {

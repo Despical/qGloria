@@ -2,6 +2,7 @@ package me.despical.battleacademy;
 
 import lombok.Getter;
 import me.despical.battleacademy.commands.Commands;
+import me.despical.battleacademy.enchantments.base.EnchantmentManager;
 import me.despical.battleacademy.events.EventListener;
 import me.despical.battleacademy.handlers.ChatManager;
 import me.despical.battleacademy.level.LevelManager;
@@ -20,6 +21,7 @@ public class Main extends JavaPlugin {
     private CommandFramework commandFramework;
 	private LevelManager levelManager;
 	private UserManager userManager;
+	private EnchantmentManager enchantmentManager;
 
     @Override
     public void onEnable() {
@@ -38,6 +40,7 @@ public class Main extends JavaPlugin {
 		this.commandFramework = new CommandFramework(this);
 		this.levelManager = new LevelManager(this);
 		this.userManager = new UserManager(this);
+		this.enchantmentManager = new EnchantmentManager();
 
 		new Commands(this);
 
