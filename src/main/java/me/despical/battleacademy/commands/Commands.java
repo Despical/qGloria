@@ -48,16 +48,34 @@ public class Commands {
 	}
 
 	@Command(
-		name = "battleacademy.enchantment"
+		name = "battleacademy.enchantment",
+		min = 1
 	)
 	public void enchantCommand(CommandArguments arguments) {
 		Player player = arguments.getSender();
 
-		var item = player.getItemInHand();
-		var meta = player.getItemInHand().getItemMeta();
-		meta.setLore(List.of(Strings.format("&7Flame Arrows I")));
-		item.setItemMeta(meta);
-		item.addUnsafeEnchantment(EnchantmentManager.FLAME_ARROWS, 1);
+		switch (arguments.getArgumentAsInt(0)) {
+			case 1 -> {
+				var item = player.getItemInHand();
+				var meta = item.getItemMeta();
+				meta.setLore(List.of(Strings.format("&7Flame Arrows I")));
+				item.setItemMeta(meta);
+				item.addUnsafeEnchantment(EnchantmentManager.FLAME_ARROWS, 1);
+
+				player.sendMessage("Flame Arrows eklendi");
+			}
+
+			case 2 -> {
+				var item = player.getInventory().getBoots();
+				var meta = item.getItemMeta();
+				meta.setLore(List.of(Strings.format("&7Quick Feet I")));
+				item.setItemMeta(meta);
+				item.addUnsafeEnchantment(EnchantmentManager.QUICK_FEET, 1);
+
+				player.sendMessage("Quick Feet eklendi");
+			}
+		}
+
 	}
 
 	@Command(
