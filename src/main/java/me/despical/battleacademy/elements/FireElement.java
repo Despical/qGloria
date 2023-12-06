@@ -22,7 +22,7 @@ public class FireElement extends Element {
 
 	@Override
 	public List<Enchantment> getEnchantments() {
-		return List.of(EnchantmentManager.FLAME_ARROWS);
+		return List.of(EnchantmentManager.FLAME_ARROWS, EnchantmentManager.FLAME_CIRCLE);
 	}
 
 	@Override

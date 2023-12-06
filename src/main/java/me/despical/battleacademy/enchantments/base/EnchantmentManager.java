@@ -1,6 +1,7 @@
 package me.despical.battleacademy.enchantments.base;
 
 import me.despical.battleacademy.enchantments.FlameArrows;
+import me.despical.battleacademy.enchantments.FlameCircle;
 import me.despical.battleacademy.enchantments.QuickFeet;
 import me.despical.battleacademy.enchantments.RisingArrows;
 import org.bukkit.enchantments.Enchantment;
@@ -13,8 +14,9 @@ public class EnchantmentManager {
 	public static final Enchantment FLAME_ARROWS = new FlameArrows();
 	public static final Enchantment QUICK_FEET = new QuickFeet();
 	public static final Enchantment RISING_ARROWS = new RisingArrows();
+	public static final Enchantment FLAME_CIRCLE = new FlameCircle();
 
-	public static final List<Enchantment> CUSTOM_ENCHANTMENTS = List.of(FLAME_ARROWS, QUICK_FEET, RISING_ARROWS);
+	public static final List<Enchantment> CUSTOM_ENCHANTMENTS = List.of(FLAME_ARROWS, QUICK_FEET, RISING_ARROWS, FLAME_CIRCLE);
 
 	public EnchantmentManager() {
 		var enchantments = Arrays.asList(Enchantment.values());

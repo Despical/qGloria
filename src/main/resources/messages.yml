@@ -8,3 +8,4 @@ level-messages:
 
 element-messages:
   cannot-change-element: "&cYou can not change your element once you select!"
+  cooldown-message: "&cYou have to wait %f seconds to use this ability again!"

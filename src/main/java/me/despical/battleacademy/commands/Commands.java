@@ -85,8 +85,16 @@ public class Commands {
 				player.sendMessage("Rising Arrows added!");
 			}
 
-		}
+			case 4 -> {
+				var item = player.getItemInHand();
+				var meta = item.getItemMeta();
+				meta.setLore(List.of(Strings.format("&7Flame Circle I")));
+				item.setItemMeta(meta);
+				item.addUnsafeEnchantment(EnchantmentManager.FLAME_CIRCLE, 1);
 
+				player.sendMessage("Flame Circle added!");
+			}
+		}
 	}
 
 	@Command(
