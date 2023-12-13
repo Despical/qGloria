@@ -4,50 +4,129 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/menu.yml" afterDir="false" />
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Added flame circle enchantment">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Bleeding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Blocking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/CriticalDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/PlayerSlowing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/items.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/api/StatsStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/api/StatsStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/commands/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elemental/SelectComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/elements/SelectComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elemental/SelectMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/elements/SelectMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/profile/ProfileComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/profile/ProfileComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/api/StatsStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/api/StatsStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/AirElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/AirElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/EarthElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/EarthElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/FireElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/FireElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/IceElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/IceElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/base/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/base/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/elements/base/Passive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/base/Passive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/FlameArrows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/LifeSteal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/FlameCircle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/QuickFeet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/RisingArrows.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/base/CustomEnchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/base/CustomEnchantment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/enchantments/base/EnchantmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/base/EnchantmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/events/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/events/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/events/JoinQuitEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/events/JoinQuitEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/events/LevelEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/events/LevelEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/handlers/ChatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/handlers/ChatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/level/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/level/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/level/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/elements/SelectComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/elements/SelectComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/elements/SelectMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/elements/SelectMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/profile/ProfileComponents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/menus/profile/ProfileMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/user/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/user/data/FileStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/user/data/FileStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/user/data/IUserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/user/data/IUserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/battleacademy/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Despical&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8a445c30-df4d-49d6-bb53-1ba8b9a5b687" />
+        <option name="url" value="https://github.com/Quezly/BattleAcademy" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2YcOfOSmqbLWJNQk1IbpXa3oywP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/berke/IdeaProjects/qGloria&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean package" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="battle-academy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="battle-academy" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,11 +135,213 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700821505470</updated>
-      <workItem from="1700821506657" duration="370000" />
+      <workItem from="1700821506657" duration="8619000" />
+      <workItem from="1700831400654" duration="2257000" />
+      <workItem from="1700838155701" duration="589000" />
+      <workItem from="1700847171425" duration="3847000" />
+      <workItem from="1700894005652" duration="46000" />
+      <workItem from="1700908742656" duration="9232000" />
+      <workItem from="1700919800701" duration="6934000" />
+      <workItem from="1700945250259" duration="12000" />
+      <workItem from="1700997074610" duration="3630000" />
+      <workItem from="1701002477256" duration="2586000" />
+      <workItem from="1701599843108" duration="6188000" />
+      <workItem from="1701618926175" duration="6442000" />
+      <workItem from="1701629151032" duration="13000" />
+      <workItem from="1701786483885" duration="15000" />
+      <workItem from="1701859420291" duration="4442000" />
+      <workItem from="1701944916408" duration="113000" />
+      <workItem from="1702308907534" duration="793000" />
+      <workItem from="1702309710191" duration="5060000" />
+      <workItem from="1702391485140" duration="21000" />
+      <workItem from="1702395018441" duration="5607000" />
+      <workItem from="1702469687929" duration="1906000" />
     </task>
+    <task id="LOCAL-00001" summary="Added menu file to change name and lore">
+      <option name="closed" value="true" />
+      <created>1700821941498</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700821941498</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added menu file to change name and lore">
+      <option name="closed" value="true" />
+      <created>1700822014721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700822014721</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added text centering">
+      <option name="closed" value="true" />
+      <created>1700829445305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700829445305</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added cooldown system">
+      <option name="closed" value="true" />
+      <created>1700831748161</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700831748161</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Centered element item titles">
+      <option name="closed" value="true" />
+      <created>1700838351744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700838351744</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Centered element item titles">
+      <option name="closed" value="true" />
+      <created>1700838418182</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700838418182</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added passive system">
+      <option name="closed" value="true" />
+      <created>1700850938488</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700850938488</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added element selecting">
+      <option name="closed" value="true" />
+      <created>1700915756218</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700915756218</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed fire element passives">
+      <option name="closed" value="true" />
+      <created>1700916124194</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700916124194</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed air sharpness passive">
+      <option name="closed" value="true" />
+      <created>1700920180722</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700920180722</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added double jump to air element">
+      <option name="closed" value="true" />
+      <created>1700921147299</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700921147299</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added swift feet passive to air element">
+      <option name="closed" value="true" />
+      <created>1700921932457</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700921932457</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added fast grow to earth">
+      <option name="closed" value="true" />
+      <created>1700926736793</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700926736793</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added User#sendTitle and User#sendRawTitle">
+      <option name="closed" value="true" />
+      <created>1700997186973</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700997186973</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added %level% placeholder">
+      <option name="closed" value="true" />
+      <created>1700998478888</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700998478888</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Finished all passives">
+      <option name="closed" value="true" />
+      <created>1701005301978</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701005301978</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added custom enchantment system">
+      <option name="closed" value="true" />
+      <created>1701606025513</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701606025513</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added quick feet enchantment">
+      <option name="closed" value="true" />
+      <created>1701621941908</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701621941908</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed rising arrows not working">
+      <option name="closed" value="true" />
+      <created>1701625407271</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701625407271</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added flame circle enchantment">
+      <option name="closed" value="true" />
+      <created>1701863613001</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701863613001</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added menu file to change name and lore" />
+    <MESSAGE value="Added text centering" />
+    <MESSAGE value="Added cooldown system" />
+    <MESSAGE value="Centered element item titles" />
+    <MESSAGE value="Added passive system" />
+    <MESSAGE value="Added element selecting" />
+    <MESSAGE value="Fixed fire element passives" />
+    <MESSAGE value="Fixed air sharpness passive" />
+    <MESSAGE value="Added double jump to air element" />
+    <MESSAGE value="Added swift feet passive to air element" />
+    <MESSAGE value="Added fast grow to earth" />
+    <MESSAGE value="Added User#sendTitle and User#sendRawTitle" />
+    <MESSAGE value="Added %level% placeholder" />
+    <MESSAGE value="Finished all passives" />
+    <MESSAGE value="Added custom enchantment system" />
+    <MESSAGE value="Added quick feet enchantment" />
+    <MESSAGE value="Fixed rising arrows not working" />
+    <MESSAGE value="Added flame circle enchantment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added flame circle enchantment" />
   </component>
 </project>

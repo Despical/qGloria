@@ -1,5 +1,5 @@
-name: BattleAcademy
-authors: [ Despical, Erisos ]
+name: qGloria
+author: Despical
 version: ${project.version}
 api-version: 1.13
-main: me.despical.battleacademy.Main
+main: me.despical.qgloria.Main
