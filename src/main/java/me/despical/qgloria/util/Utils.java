@@ -1,10 +1,9 @@
 package me.despical.qgloria.util;
 
 import me.despical.qgloria.api.StatsStorage;
-import me.despical.qgloria.elements.AirElement;
-import me.despical.qgloria.elements.EarthElement;
-import me.despical.qgloria.elements.FireElement;
-import me.despical.qgloria.elements.IceElement;
+import me.despical.qgloria.elements.Karus;
+import me.despical.qgloria.elements.Barbarian;
+import me.despical.qgloria.elements.Kurian;
 import me.despical.qgloria.elements.base.Element;
 import me.despical.qgloria.user.User;
 import org.bukkit.Material;
@@ -19,10 +18,9 @@ public class Utils {
 
 	public static Element getElement(User user) {
 		var element =  switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
-			case 1 -> new FireElement(user);
-			case 2 -> new IceElement(user);
-			case 3 -> new EarthElement(user);
-			case 4 -> new AirElement(user);
+			case 1 -> new Kurian(user);
+			case 2 -> new Barbarian(user);
+			case 3 -> new Karus(user);
 			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 		};
 
@@ -32,10 +30,9 @@ public class Utils {
 
 	public static Element getElementFromId(User user, int id) {
 		var element = switch (id) {
-			case 1 -> new FireElement(user);
-			case 2 -> new IceElement(user);
-			case 3 -> new EarthElement(user);
-			case 4 -> new AirElement(user);
+			case 1 -> new Kurian(user);
+			case 2 -> new Barbarian(user);
+			case 3 -> new Karus(user);
 			default -> throw new IllegalStateException("Unexpected value: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 		};
 

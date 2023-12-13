@@ -32,8 +32,6 @@ public abstract class Element {
 
 	public abstract void registerPassives();
 
-	public abstract List<Enchantment> getEnchantments();
-
 	public void initialize() {
 		adjustSpeed();
 		registerPassives();

@@ -1,11 +1,10 @@
 package me.despical.qgloria.elements;
 
+import me.despical.commons.miscellaneous.AttributeUtils;
 import me.despical.qgloria.elements.base.Element;
 import me.despical.qgloria.elements.base.Passive;
 import me.despical.qgloria.user.User;
-import me.despical.commons.miscellaneous.AttributeUtils;
 import org.bukkit.GameMode;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,22 +14,15 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.List;
+public class Karus extends Element {
 
-public class AirElement extends Element {
-
-	public AirElement(User user) {
+	public Karus(User user) {
 		super(user, 4);
 		this.fallDamage = -40;
 		this.fireDefence = -15;
 		this.defense = -10;
 		this.speed = 7;
 		this.attackSpeed = -15;
-	}
-
-	@Override
-	public List<Enchantment> getEnchantments() {
-		return null;
 	}
 
 	@Override

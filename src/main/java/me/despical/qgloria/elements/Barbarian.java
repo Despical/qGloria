@@ -23,19 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class EarthElement extends Element {
+public class Barbarian extends Element {
 
-	public EarthElement(User user) {
+	public Barbarian(User user) {
 		super(user, 3);
 		this.lavaDefense = 2;
 		this.defense = 5;
 		this.fallDamage = 10;
 		this.speed = -5;
-	}
-
-	@Override
-	public List<Enchantment> getEnchantments() {
-		return null;
 	}
 
 	@Override
