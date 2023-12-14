@@ -2,7 +2,6 @@ package me.despical.qgloria;
 
 import lombok.Getter;
 import me.despical.commandframework.CommandFramework;
-import me.despical.commons.item.ItemBuilder;
 import me.despical.qgloria.commands.Commands;
 import me.despical.qgloria.enchantments.base.EnchantmentManager;
 import me.despical.qgloria.events.EventListener;
@@ -10,11 +9,7 @@ import me.despical.qgloria.handlers.ChatManager;
 import me.despical.qgloria.level.LevelManager;
 import me.despical.qgloria.user.User;
 import me.despical.qgloria.user.UserManager;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -53,28 +48,6 @@ public class Main extends JavaPlugin implements Listener {
 
 		User.cooldownHandlerTask();
 		EventListener.registerEvents(this);
-	}
-
-	@EventHandler
-	public void onClick(InventoryClickEvent event) {
-		if (event.getInventory().getType() != InventoryType.ANVIL) return;
-
-		final var anvil = (AnvilInventory) event.getInventory();
-
-		if (event.getRawSlot() == 1) {
-			var item = anvil.getFirstItem();
-			System.out.println(1);
-			if (item == null) return;
-
-			var secondItem = event.getCurrentItem();
-
-			System.out.println(secondItem.getType().name());
-
-			var result = new ItemBuilder(secondItem).build();
-			anvil.setItem(2, result);
-
-			System.out.println("sadsasass");
-		}
 	}
 
 	private void setupConfigurationFiles() {

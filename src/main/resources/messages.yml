@@ -1,11 +1,10 @@
 commands:
-  did-you-mean: "&3Did you mean &b/%command%?"
+  did-you-mean: "&3Bunu mu demek istemiştiniz &b/%command%?"
 
 level-messages:
   new-level: "level up"
-  level-up-title: "#424242&l[&l#37ff1c&lLEVEL UP!#424242]"
-  level-up-subtitle: "&#eaff2eNew level: %level%"
+  level-up-title: "#424242&l[&l#37ff1c&lSeviye Atladın!#424242]"
+  level-up-subtitle: "&#eaff2eYeni seviye: %level%"
 
-element-messages:
-  cannot-change-element: "&cYou can not change your element once you select!"
-  cooldown-message: "&cYou have to wait %f seconds to use this ability again!"
+messages:
+  cannot-change-class: "&cSınıfını seçtikten sonra tekrar değiştiremezsin!"

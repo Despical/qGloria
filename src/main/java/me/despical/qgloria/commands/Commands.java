@@ -1,10 +1,9 @@
 package me.despical.qgloria.commands;
 
 import me.despical.qgloria.Main;
-import me.despical.qgloria.api.StatsStorage;
 import me.despical.qgloria.enchantments.base.EnchantmentManager;
 import me.despical.qgloria.item.RuneStone;
-import me.despical.qgloria.menus.elements.SelectMenu;
+import me.despical.qgloria.menus.classes.SelectMenu;
 import me.despical.commandframework.Command;
 import me.despical.commandframework.CommandArguments;
 import me.despical.commandframework.Completer;
@@ -74,13 +73,13 @@ public class Commands {
 			}
 
 			case 2 -> {
-				var item = player.getInventory().getBoots();
+				var item = player.getItemInHand();
 				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Quick Feet I")));
+				meta.setLore(List.of(Strings.format("&7Kritik Vurus Ihtimali I")));
 				item.setItemMeta(meta);
 				item.addUnsafeEnchantment(EnchantmentManager.ATTACK_POWER, 1);
 
-				player.sendMessage("Quick Feet added!");
+				player.sendMessage("ATTACK_POWER added!");
 			}
 
 			case 3 -> {
@@ -103,19 +102,6 @@ public class Commands {
 				player.sendMessage("Flame Circle added!");
 			}
 		}
-	}
-
-	@Command(
-		name = "qgloria.stats",
-		senderType = Command.SenderType.PLAYER
-	)
-	public void statsCommand(CommandArguments arguments) {
-		final var user = plugin.getUserManager().getUser(arguments.getSender());
-
-		user.sendRawMessage("Level: %d\nXP: %d", user.getStat(StatsStorage.StatisticType.LEVEL), user.getStat(StatsStorage.StatisticType.XP));
-		user.sendRawMessage("Kills: " + user.getStat(StatsStorage.StatisticType.KILLS));
-		user.sendRawMessage("Death: " + user.getStat(StatsStorage.StatisticType.DEATHS));
-		user.sendRawMessage("Element: " + user.getStat(StatsStorage.StatisticType.ELEMENT));
 	}
 
 	@Command(

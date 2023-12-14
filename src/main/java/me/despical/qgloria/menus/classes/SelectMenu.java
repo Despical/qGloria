@@ -1,4 +1,4 @@
-package me.despical.qgloria.menus.elements;
+package me.despical.qgloria.menus.classes;
 
 import me.despical.qgloria.Main;
 import me.despical.commons.compat.XMaterial;
@@ -16,7 +16,7 @@ public class SelectMenu {
 	public SelectMenu(Main plugin, Player player) {
 		this.plugin = plugin;
 		this.player = player;
-		this.gui = new Gui(plugin, 3,"Element Select");
+		this.gui = new Gui(plugin, 3,"Sınıf Seçin");
 		this.gui.setOnGlobalClick(event -> event.setCancelled(true));
 		this.pane = new StaticPane(9,3);
 		this.pane.fillWith(XMaterial.BLACK_STAINED_GLASS_PANE.parseItem());

@@ -40,7 +40,7 @@ public class PlayerSlowing extends CustomEnchantment {
 
 				if (slowness <= level) {
 					if (!player.hasPotionEffect(PotionEffectType.SLOW))
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,  slowness, level - 1, false, false, false));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, slowness, level - 1, false, false, false));
 				}
 			}
 		};

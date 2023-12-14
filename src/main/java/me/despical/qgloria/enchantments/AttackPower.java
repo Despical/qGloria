@@ -26,7 +26,7 @@ public class AttackPower extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) return;
+				if (!(event.getDamager() instanceof Player damager /*&& event.getEntity() instanceof Player*/)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
@@ -36,6 +36,7 @@ public class AttackPower extends CustomEnchantment {
 				int level = item.getEnchantmentLevel(AttackPower.this);
 				double additionalDamage = ThreadLocalRandom.current().nextDouble(level * 2);
 
+				damager.sendMessage("old: " + event.getDamage() + "new: " + (event.getDamage() + additionalDamage / 10D));
 				event.setDamage(event.getDamage() + additionalDamage / 10D);
 			}
 		};
@@ -53,6 +54,6 @@ public class AttackPower extends CustomEnchantment {
 
 	@Override
 	public @NotNull Set<EquipmentSlot> getActiveSlots() {
-		return Set.of(EquipmentSlot.FEET);
+		return Set.of(EquipmentSlot.HAND);
 	}
 }

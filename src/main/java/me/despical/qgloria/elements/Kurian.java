@@ -14,6 +14,9 @@ public class Kurian extends Element {
 
 	public Kurian(User user) {
 		super(user, 1);
+		this.defense = 5;
+		this.fallDamage = -10;
+		this.speed = 5;
 	}
 
 	@Override
