@@ -4,6 +4,7 @@ import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.qgloria.enchantments.base.CustomEnchantment;
 import org.bukkit.Material;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,18 +29,18 @@ public class Bleeding extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity player)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
 				if (item.getType() == Material.AIR) return;
-				if (!item.containsEnchantment(Bleeding.this)) return;
+				if (!item.getEnchantments().containsKey(Bleeding.this)) return;
 
-				int level = item.getEnchantmentLevel(Bleeding.this);
-				int criticalDamage = ThreadLocalRandom.current().nextInt(level * 2);
+				int level = item.getEnchantments().get(Bleeding.this);
+				int criticalChance = ThreadLocalRandom.current().nextInt(100);
 
-				if (criticalDamage <= level) {
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HARM, criticalDamage, level - 1, false, false, false));
+				if (criticalChance <= level * 7) {
+					player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 20 * ThreadLocalRandom.current().nextInt(5 * level) + 20, level - 1, false, false, false));
 				}
 			}
 		};

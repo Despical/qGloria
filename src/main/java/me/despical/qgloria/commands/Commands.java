@@ -65,11 +65,11 @@ public class Commands {
 			case 1 -> {
 				var item = player.getItemInHand();
 				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Flame Arrows I")));
+				meta.setLore(List.of(Strings.format("&7Kanama I")));
 				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.LIFE_STEAL, 1);
+				item.addUnsafeEnchantment(EnchantmentManager.BLEEDING, 1);
 
-				player.sendMessage("Flame Arrows added!");
+				player.sendMessage("Bleeding added!");
 			}
 
 			case 2 -> {

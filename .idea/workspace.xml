@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Finished menus etc.">
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Replaced #contains with #containsKey">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Bleeding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Bleeding.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,7 @@
       <workItem from="1702469687929" duration="3943000" />
       <workItem from="1702556999394" duration="959000" />
       <workItem from="1702573069022" duration="3066000" />
-      <workItem from="1702647782752" duration="614000" />
+      <workItem from="1702647782752" duration="2012000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -313,7 +314,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702575816381</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Finished AttackPower">
+      <option name="closed" value="true" />
+      <created>1702648630287</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702648630287</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Replaced #contains with #containsKey">
+      <option name="closed" value="true" />
+      <created>1702648943695</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702648943695</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +359,8 @@
     <MESSAGE value="Finished enchantments" />
     <MESSAGE value="New features" />
     <MESSAGE value="Finished menus etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished menus etc." />
+    <MESSAGE value="Finished AttackPower" />
+    <MESSAGE value="Replaced #contains with #containsKey" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced #contains with #containsKey" />
   </component>
 </project>
