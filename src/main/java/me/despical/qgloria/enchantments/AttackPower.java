@@ -36,7 +36,7 @@ public class AttackPower extends CustomEnchantment {
 					return;
 				}
 
-				if (!item.getEnchantments().keySet().contains(AttackPower.this)) {
+				if (!item.getEnchantments().containsKey(AttackPower.this)) {
 					return;
 				}
 
