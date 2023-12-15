@@ -29,7 +29,7 @@ public class Bleeding extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity entity)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
@@ -40,7 +40,7 @@ public class Bleeding extends CustomEnchantment {
 				int criticalChance = ThreadLocalRandom.current().nextInt(100);
 
 				if (criticalChance <= level * 7) {
-					player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 20 * ThreadLocalRandom.current().nextInt(5 * level) + 20, level - 1, false, false, false));
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 20 * ThreadLocalRandom.current().nextInt(5 * level) + 20, level - 1, false, false, false));
 				}
 			}
 		};

@@ -93,13 +93,13 @@ public class Commands {
 			}
 
 			case 4 -> {
-				var item = player.getItemInHand();
+				var item = player.getInventory().getBoots();
 				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Flame Circle I")));
+				meta.setLore(List.of(Strings.format("&7Hasar Bloklama I")));
 				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.BLEEDING, 1);
+				item.addUnsafeEnchantment(EnchantmentManager.BLOCKING, 1);
 
-				player.sendMessage("Flame Circle added!");
+				player.sendMessage("Blocking added!");
 			}
 		}
 	}

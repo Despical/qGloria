@@ -3,6 +3,7 @@ package me.despical.qgloria.enchantments;
 import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.qgloria.enchantments.base.CustomEnchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,23 +26,21 @@ public class Blocking extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) return;
+				if (!(event.getDamager() instanceof LivingEntity && event.getEntity() instanceof Player player)) return;
 
-				var armors = damager.getInventory().getArmorContents();
-
-				if (armors.length == 0) return;
-
+				var armors = player.getInventory().getArmorContents();
 				boolean hasEnchant = false;
 
 				for (var armor : armors) {
-					if (!armor.containsEnchantment(Blocking.this)) continue;
+					if (armor == null || !armor.getEnchantments().containsKey(Blocking.this)) continue;
 					hasEnchant = true;
 				}
 
 				if (!hasEnchant) return;
 
-				if (ThreadLocalRandom.current().nextInt(100) <= 5)
+				if (ThreadLocalRandom.current().nextInt(100) <= 15) {
 					event.setDamage(0);
+				}
 			}
 		};
 	}
