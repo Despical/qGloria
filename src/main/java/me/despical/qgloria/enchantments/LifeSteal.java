@@ -3,8 +3,8 @@ package me.despical.qgloria.enchantments;
 import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.qgloria.enchantments.base.CustomEnchantment;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,15 +27,15 @@ public class LifeSteal extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
 				if (item.getType() == Material.AIR) return;
-				if (!item.containsEnchantment(LifeSteal.this)) return;
+				if (!item.getEnchantments().containsKey(LifeSteal.this)) return;
 
-				int level = item.getEnchantmentLevel(LifeSteal.this);
-				double lifeSteal = ThreadLocalRandom.current().nextDouble(level * 2);
+				int level = item.getEnchantments().get(LifeSteal.this);
+				double lifeSteal = ThreadLocalRandom.current().nextDouble(level * 2) + .25;
 				double health = damager.getHealth() + lifeSteal / 10D;
 
 				if (health >= damager.getMaxHealth())
@@ -59,10 +59,5 @@ public class LifeSteal extends CustomEnchantment {
 	@Override
 	public @NotNull Set<EquipmentSlot> getActiveSlots() {
 		return Set.of(EquipmentSlot.HAND);
-	}
-
-	@Override
-	public boolean conflictsWith(@NotNull Enchantment enchantment) {
-		return super.conflictsWith(enchantment);
 	}
 }

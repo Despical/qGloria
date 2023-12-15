@@ -101,6 +101,16 @@ public class Commands {
 
 				player.sendMessage("Blocking added!");
 			}
+
+			case 5 -> {
+				var item = player.getItemInHand();
+				var meta = item.getItemMeta();
+				meta.setLore(List.of(Strings.format("&7Can Çalma I")));
+				item.setItemMeta(meta);
+				item.addUnsafeEnchantment(EnchantmentManager.LIFE_STEAL, 1);
+
+				player.sendMessage("Can Çalma added!");
+			}
 		}
 	}
 
