@@ -4,13 +4,12 @@ import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.qgloria.enchantments.base.CustomEnchantment;
 import org.bukkit.Material;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -28,17 +27,18 @@ public class CriticalDamage extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
 				if (item.getType() == Material.AIR) return;
-				if (!item.containsEnchantment(CriticalDamage.this)) return;
+				if (!item.getEnchantments().containsKey(CriticalDamage.this)) return;
 
-				int level = item.getEnchantmentLevel(CriticalDamage.this);
-				double criticalDamage = ThreadLocalRandom.current().nextDouble(level * 2);
+				int level = item.getEnchantments().get(CriticalDamage.this);
+				double criticalDamage = ThreadLocalRandom.current().nextDouble(level * 2) + 1;
+				int chance = ThreadLocalRandom.current().nextInt(100 / level);
 
-				if (criticalDamage <= level) {
+				if (chance <= level * 5) {
 					event.setDamage(event.getDamage() + criticalDamage);
 				}
 			}
@@ -47,7 +47,7 @@ public class CriticalDamage extends CustomEnchantment {
 
 	@Override
 	public @NotNull EnchantmentTarget getItemTarget() {
-		return EnchantmentTarget.BOW;
+		return EnchantmentTarget.WEAPON;
 	}
 
 	@Override

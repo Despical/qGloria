@@ -40,7 +40,7 @@ public class AttackPower extends CustomEnchantment {
 					return;
 				}
 
-				int level = item.getEnchantments().getOrDefault(AttackPower.this, 1);
+				int level = item.getEnchantments().get(AttackPower.this);
 				double additionalDamage = ThreadLocalRandom.current().nextDouble(level * 2 + 1);
 
 				event.setDamage(event.getDamage() + additionalDamage / 9D);

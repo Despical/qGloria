@@ -85,11 +85,11 @@ public class Commands {
 			case 3 -> {
 				var item = player.getItemInHand();
 				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Rising Arrows I")));
+				meta.setLore(List.of(Strings.format("&7Kritik Vuruş İhtimali I")));
 				item.setItemMeta(meta);
 				item.addUnsafeEnchantment(EnchantmentManager.CRITICAL_DAMAGE, 1);
 
-				player.sendMessage("Rising Arrows added!");
+				player.sendMessage("Critical Damage added!");
 			}
 
 			case 4 -> {
