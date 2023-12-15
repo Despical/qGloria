@@ -26,18 +26,25 @@ public class AttackPower extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager /*&& event.getEntity() instanceof Player*/)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) {
+					return;
+				}
 
 				var item = damager.getInventory().getItemInMainHand();
 
-				if (item.getType() == Material.AIR) return;
-				if (!item.containsEnchantment(AttackPower.this)) return;
+				if (item.getType() == Material.AIR) {
+					return;
+				}
 
-				int level = item.getEnchantmentLevel(AttackPower.this);
-				double additionalDamage = ThreadLocalRandom.current().nextDouble(level * 2);
+				if (!item.getEnchantments().keySet().contains(AttackPower.this)) {
+					return;
+				}
 
-				damager.sendMessage("old: " + event.getDamage() + "new: " + (event.getDamage() + additionalDamage / 10D));
-				event.setDamage(event.getDamage() + additionalDamage / 10D);
+				int level = item.getEnchantments().getOrDefault(AttackPower.this, 1);
+				double additionalDamage = ThreadLocalRandom.current().nextDouble(level * 2 + 1);
+
+//				damager.sendMessage("old: " + event.getDamage() + "new: " + (event.getDamage() + additionalDamage / 9D));
+				event.setDamage(event.getDamage() + additionalDamage / 9D);
 			}
 		};
 	}

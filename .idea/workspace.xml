@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="New features">
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Finished menus etc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Barbarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Karus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Karus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Kurian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/elements/Kurian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/PlayerSlowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/PlayerSlowing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/elements/SelectComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/classes/SelectComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/elements/SelectMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/classes/SelectMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +118,8 @@
       <workItem from="1702395018441" duration="5607000" />
       <workItem from="1702469687929" duration="3943000" />
       <workItem from="1702556999394" duration="959000" />
-      <workItem from="1702573069022" duration="2507000" />
+      <workItem from="1702573069022" duration="3066000" />
+      <workItem from="1702647782752" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -314,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702473277746</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Finished menus etc.">
+      <option name="closed" value="true" />
+      <created>1702575816381</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702575816381</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +341,7 @@
     <MESSAGE value="Uploaded project files" />
     <MESSAGE value="Finished enchantments" />
     <MESSAGE value="New features" />
-    <option name="LAST_COMMIT_MESSAGE" value="New features" />
+    <MESSAGE value="Finished menus etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished menus etc." />
   </component>
 </project>
