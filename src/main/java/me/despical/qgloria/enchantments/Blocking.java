@@ -38,7 +38,9 @@ public class Blocking extends CustomEnchantment {
 
 				if (!hasEnchant) return;
 
-				if (ThreadLocalRandom.current().nextInt(100) <= 15) {
+				int chance = ThreadLocalRandom.current().nextInt(100);
+
+				if (chance <= 15) {
 					event.setDamage(0);
 				}
 			}

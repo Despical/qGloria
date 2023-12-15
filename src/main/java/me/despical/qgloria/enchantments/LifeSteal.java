@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LifeSteal extends CustomEnchantment {
 
 	public LifeSteal() {
-		super("life_steal", "Can Calma", 3);
+		super("life_steal", "Can Çalma", 3);
 	}
 
 	@Override

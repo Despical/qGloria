@@ -31,6 +31,8 @@ public abstract class CustomEnchantment extends Enchantment {
 
 	public abstract Listener registerEvents();
 
+//	public abstract String getFormattedName();
+
 	public final int getRandomLevel() {
 		return ThreadLocalRandom.current().nextInt(maxLevel) + 1;
 	}

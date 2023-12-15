@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class AttackPower extends CustomEnchantment {
 
 	public AttackPower() {
-		super("critical_damage", "Kritik Vurus Ihtimali", 2);
+		super("critical_damage", "Kritik Vuruş İhtimali", 2);
 	}
 
 	@Override

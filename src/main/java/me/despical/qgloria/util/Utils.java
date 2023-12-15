@@ -16,6 +16,11 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+	public static String intToRoman(int i) {
+		if (i == 5) return "V";
+		return "I".repeat(i);
+	}
+
 	public static Element getElement(User user) {
 		var element =  switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
 			case 1 -> new Kurian(user);

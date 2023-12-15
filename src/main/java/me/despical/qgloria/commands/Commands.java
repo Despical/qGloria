@@ -1,14 +1,12 @@
 package me.despical.qgloria.commands;
 
-import me.despical.qgloria.Main;
-import me.despical.qgloria.enchantments.base.EnchantmentManager;
-import me.despical.qgloria.item.RuneStone;
-import me.despical.qgloria.menus.classes.SelectMenu;
 import me.despical.commandframework.Command;
 import me.despical.commandframework.CommandArguments;
 import me.despical.commandframework.Completer;
 import me.despical.commons.string.StringMatcher;
-import me.despical.commons.util.Strings;
+import me.despical.qgloria.Main;
+import me.despical.qgloria.item.RuneStone;
+import me.despical.qgloria.menus.classes.SelectMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 
@@ -52,66 +50,6 @@ public class Commands {
 	public void runeStoneCommand(CommandArguments arguments) {
 		Player player = arguments.getSender();
 		player.getInventory().addItem(RuneStone.RUNE_STONE);
-	}
-
-	@Command(
-		name = "qgloria.enchantment",
-		min = 1
-	)
-	public void enchantCommand(CommandArguments arguments) {
-		Player player = arguments.getSender();
-
-		switch (arguments.getArgumentAsInt(0)) {
-			case 1 -> {
-				var item = player.getItemInHand();
-				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Kanama I")));
-				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.BLEEDING, 1);
-
-				player.sendMessage("Bleeding added!");
-			}
-
-			case 2 -> {
-				var item = player.getItemInHand();
-				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Kritik Vurus Ihtimali I")));
-				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.ATTACK_POWER, 1);
-
-				player.sendMessage("ATTACK_POWER added!");
-			}
-
-			case 3 -> {
-				var item = player.getItemInHand();
-				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Kritik Vuruş İhtimali I")));
-				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.CRITICAL_DAMAGE, 1);
-
-				player.sendMessage("Critical Damage added!");
-			}
-
-			case 4 -> {
-				var item = player.getInventory().getBoots();
-				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Hasar Bloklama I")));
-				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.BLOCKING, 1);
-
-				player.sendMessage("Blocking added!");
-			}
-
-			case 5 -> {
-				var item = player.getItemInHand();
-				var meta = item.getItemMeta();
-				meta.setLore(List.of(Strings.format("&7Can Çalma I")));
-				item.setItemMeta(meta);
-				item.addUnsafeEnchantment(EnchantmentManager.LIFE_STEAL, 1);
-
-				player.sendMessage("Can Çalma added!");
-			}
-		}
 	}
 
 	@Command(

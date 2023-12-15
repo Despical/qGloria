@@ -4,6 +4,7 @@ import io.papermc.paper.enchantments.EnchantmentRarity;
 import me.despical.qgloria.enchantments.base.CustomEnchantment;
 import org.bukkit.Material;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,19 +29,20 @@ public class PlayerSlowing extends CustomEnchantment {
 
 			@EventHandler
 			public void onEntityDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof LivingEntity entity)) return;
 
 				var item = damager.getInventory().getItemInMainHand();
 
 				if (item.getType() == Material.AIR) return;
-				if (!item.containsEnchantment(PlayerSlowing.this)) return;
+				if (!item.getEnchantments().containsKey(PlayerSlowing.this)) return;
 
-				int level = item.getEnchantmentLevel(PlayerSlowing.this);
-				int slowness = ThreadLocalRandom.current().nextInt(level * 2);
+				int level = item.getEnchantments().get(PlayerSlowing.this);
+				int slowness = ThreadLocalRandom.current().nextInt(level * (3 + level)) + 1;
+				int chance = ThreadLocalRandom.current().nextInt(100 / level);
 
-				if (slowness <= level) {
-					if (!player.hasPotionEffect(PotionEffectType.SLOW))
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, slowness, level - 1, false, false, false));
+				if (chance <= 55) {
+					if (!entity.hasPotionEffect(PotionEffectType.SLOW))
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, slowness * 20, level - 1, false, false, false));
 				}
 			}
 		};
