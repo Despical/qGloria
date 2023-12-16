@@ -20,6 +20,13 @@ public class SelectMenu {
 		this.gui.setOnGlobalClick(event -> event.setCancelled(true));
 		this.pane = new StaticPane(9,3);
 		this.pane.fillWith(XMaterial.BLACK_STAINED_GLASS_PANE.parseItem());
+		this.gui.setOnClose(event -> plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+			var element = plugin.getUserManager().getUser(player).getElement();
+
+			if (element == null || element.getId() == 0) {
+				gui.show(player);
+			}
+		}, 2L));
 
 		var components = new SelectComponents();
 		components.injectComponents(this);
