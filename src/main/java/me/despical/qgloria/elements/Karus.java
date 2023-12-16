@@ -6,7 +6,7 @@ import me.despical.qgloria.user.User;
 public class Karus extends Element {
 
 	public Karus(User user) {
-		super(user, 4);
+		super(user, 3);
 		this.fallDamage = -40;
 		this.fireDefence = -15;
 		this.defense = -10;

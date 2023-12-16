@@ -17,7 +17,7 @@ import java.util.Set;
 public class Barbarian extends Element {
 
 	public Barbarian(User user) {
-		super(user, 3);
+		super(user, 2);
 		this.attack = 5;
 		this.speed = -3;
 		this.lavaDefense = -3;
