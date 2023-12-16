@@ -33,6 +33,15 @@ public class Utils {
 		return element;
 	}
 
+	public static String getElementName(User user) {
+		return switch (user.getStat(StatsStorage.StatisticType.ELEMENT)) {
+			case 1 -> "Kurian";
+			case 2 -> "Barbarian";
+			case 3 -> "Karus";
+			default -> "Henüz Seçilmedi";
+		};
+	}
+
 	public static Element getElementFromId(User user, int id) {
 		var element = switch (id) {
 			case 1 -> new Kurian(user);

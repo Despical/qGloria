@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Finished LifeSteal enchantment">
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Finished enchantment system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/commands/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/AttackPower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Blocking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/Blocking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/LifeSteal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/LifeSteal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/PlayerSlowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/PlayerSlowing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/base/CustomEnchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/enchantments/base/CustomEnchantment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/events/JoinQuitEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/events/JoinQuitEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/handlers/ChatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/handlers/ChatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/classes/SelectComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/SelectComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/classes/SelectMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/SelectMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +127,8 @@
       <workItem from="1702556999394" duration="959000" />
       <workItem from="1702573069022" duration="3066000" />
       <workItem from="1702647782752" duration="2640000" />
-      <workItem from="1702671686279" duration="2027000" />
+      <workItem from="1702671686279" duration="3373000" />
+      <workItem from="1702711645442" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -361,14 +362,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702672878782</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finished enchantment system">
+      <option name="closed" value="true" />
+      <created>1702673767945</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1702673767945</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added cooldown system" />
     <MESSAGE value="Centered element item titles" />
     <MESSAGE value="Added passive system" />
     <MESSAGE value="Added element selecting" />
@@ -393,6 +401,7 @@
     <MESSAGE value="Finished Bleeding enchantment" />
     <MESSAGE value="Finished CriticalDamage enchantment" />
     <MESSAGE value="Finished LifeSteal enchantment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished LifeSteal enchantment" />
+    <MESSAGE value="Finished enchantment system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished enchantment system" />
   </component>
 </project>

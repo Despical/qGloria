@@ -1,4 +1,4 @@
-package me.despical.qgloria.menus.classes;
+package me.despical.qgloria.menus;
 
 import me.despical.qgloria.Main;
 import me.despical.commons.compat.XMaterial;

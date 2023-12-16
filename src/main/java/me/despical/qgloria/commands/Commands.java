@@ -5,8 +5,9 @@ import me.despical.commandframework.CommandArguments;
 import me.despical.commandframework.Completer;
 import me.despical.commons.string.StringMatcher;
 import me.despical.qgloria.Main;
+import me.despical.qgloria.api.StatsStorage;
 import me.despical.qgloria.item.RuneStone;
-import me.despical.qgloria.menus.classes.SelectMenu;
+import me.despical.qgloria.menus.SelectMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 
@@ -53,6 +54,27 @@ public class Commands {
 	}
 
 	@Command(
+		name = "qgloria.reset",
+		permission = "qgloria.reset",
+		min = 1,
+		senderType = Command.SenderType.PLAYER
+	)
+	public void resetCommand(CommandArguments arguments) {
+		String name = arguments.getArgument(0);
+		Player target = plugin.getServer().getPlayerExact(name);
+
+		if (target == null) {
+			arguments.sendMessage(plugin.getChatManager().message("messages.player-not-found"));
+			return;
+		}
+
+		var user = plugin.getUserManager().getUser(target);
+		user.setStat(StatsStorage.StatisticType.ELEMENT, 0);
+
+		arguments.sendMessage(plugin.getChatManager().rawMessage("&a" + name + " adlı oyuncu artık yeniden bir sınıf seçebilir."));
+	}
+
+	@Command(
 		name = "qgloria.select",
 		senderType = Command.SenderType.PLAYER
 	)
@@ -61,7 +83,8 @@ public class Commands {
 	}
 
 	@Completer(
-		name = "qgloria"
+		name = "qgloria",
+		permission = "qgloria.admin"
 	)
 	public List<String> completer(CommandArguments arguments) {
 		List<String> completions = new ArrayList<>(), commands = plugin.getCommandFramework().getSubCommands().stream().map(cmd -> cmd.name().split("\\.")[1]).toList();

@@ -1,5 +1,6 @@
-package me.despical.qgloria.menus.classes;
+package me.despical.qgloria.menus;
 
+import me.despical.qgloria.api.StatsStorage;
 import me.despical.qgloria.user.User;
 import me.despical.qgloria.util.Utils;
 import me.despical.commons.compat.XMaterial;
@@ -47,11 +48,11 @@ public class SelectComponents {
 
 	private Consumer<InventoryClickEvent> event(User user, int id) {
 		return (event) -> {
-			// TODO: 25.11.2023 - Enable selecting elements
-//			if (user.getStat(StatsStorage.StatisticType.LEVEL) != 0) {
-//				user.sendMessage("messages.cannot-change-class");
-//				return;
-//			}
+			if (user.getStat(StatsStorage.StatisticType.ELEMENT) != 0) {
+				user.sendMessage("messages.cannot-change-class");
+				user.getPlayer().closeInventory();
+				return;
+			}
 
 			user.setElement(Utils.getElementFromId(user, id));
 			user.closeInventory();

@@ -6,6 +6,7 @@ import me.despical.qgloria.commands.Commands;
 import me.despical.qgloria.enchantments.base.EnchantmentManager;
 import me.despical.qgloria.events.EventListener;
 import me.despical.qgloria.handlers.ChatManager;
+import me.despical.qgloria.handlers.PlaceholderManager;
 import me.despical.qgloria.level.LevelManager;
 import me.despical.qgloria.user.User;
 import me.despical.qgloria.user.UserManager;
@@ -46,13 +47,14 @@ public class Main extends JavaPlugin implements Listener {
 
 		new Commands(this);
 
+		if (getServer().getPluginManager().isPluginEnabled("PlaceholderAPI"))
+			new PlaceholderManager(this);
+
 		User.cooldownHandlerTask();
 		EventListener.registerEvents(this);
 	}
 
 	private void setupConfigurationFiles() {
-		this.saveDefaultConfig();
-
 		Stream.of("messages", "stats", "levels", "menu").filter(fileName -> !new File(getDataFolder(),fileName + ".yml").exists()).forEach(fileName -> this.saveResource(fileName + ".yml", false));
 	}
 

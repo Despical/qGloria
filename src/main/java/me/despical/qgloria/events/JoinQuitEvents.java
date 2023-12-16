@@ -1,6 +1,8 @@
 package me.despical.qgloria.events;
 
 import me.despical.qgloria.Main;
+import me.despical.qgloria.api.StatsStorage;
+import me.despical.qgloria.menus.SelectMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -15,9 +17,14 @@ public class JoinQuitEvents extends EventListener {
 
 	@EventHandler
 	public void onJoinEvent(final PlayerJoinEvent event) {
-		final var user = plugin.getUserManager().getUser(event.getPlayer());
+		final var player = event.getPlayer();
+		final var user = plugin.getUserManager().getUser(player);
 
 		plugin.getUserManager().loadStatistics(user);
+
+		if (user.getStat(StatsStorage.StatisticType.ELEMENT) == 0) {
+			new SelectMenu(plugin, player);
+		}
 	}
 
 	@EventHandler

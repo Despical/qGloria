@@ -1,13 +1,10 @@
 package me.despical.qgloria.handlers;
 
-import me.despical.qgloria.Main;
-import me.despical.qgloria.user.User;
 import me.despical.commons.configuration.ConfigUtils;
 import me.despical.commons.util.Strings;
-import org.bukkit.configuration.ConfigurationSection;
+import me.despical.qgloria.Main;
+import me.despical.qgloria.user.User;
 import org.bukkit.configuration.file.FileConfiguration;
-
-import java.util.List;
 
 public class ChatManager {
 
@@ -29,15 +26,7 @@ public class ChatManager {
 		return message;
 	}
 
-	public ConfigurationSection getConfigurationSection(final String path) {
-		return config.getConfigurationSection(path);
-	}
-
 	public String rawMessage(final String message) {
 		return Strings.format(message);
-	}
-
-	public List<String> getStringList(final String path) {
-		return this.config.getStringList(path);
 	}
 }

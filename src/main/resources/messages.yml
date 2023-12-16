@@ -8,3 +8,4 @@ level-messages:
 
 messages:
   cannot-change-class: "&cSınıfını seçtikten sonra tekrar değiştiremezsin!"
+  player-not-found: "&cBu isimde bir oyuncu bulunamadı!"
