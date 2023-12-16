@@ -48,6 +48,14 @@ public class LevelManager {
 		}
 	}
 
+	public Level getLevel(int level) {
+		return levels.stream().filter(l -> l.getLevel() == level).findFirst().get();
+	}
+
+	public int getMax() {
+		return levels.stream().map(Level::getLevel).max(Integer::compareTo).get();
+	}
+
 	public Level getLevel(User user) {
 		final int level = user.getStat(StatsStorage.StatisticType.LEVEL);
 
@@ -56,12 +64,6 @@ public class LevelManager {
 
 	public int getLastLevel() {
 		return levels.stream().map(Level::getLevel).max(Comparator.naturalOrder()).orElse(-1);
-	}
-
-	public Level getNextLevel(User user) {
-		final int level = user.getStat(StatsStorage.StatisticType.LEVEL) + 1;
-
-		return levels.stream().filter(l -> l.getLevel() == level).findFirst().orElse(null);
 	}
 
 	private void registerLevels(Main plugin) {
@@ -75,9 +77,12 @@ public class LevelManager {
 
 		for (final var levelKey : section.getKeys(false)) {
 			final var level = Integer.parseInt(levelKey);
-			final var xp = Integer.parseInt(config.getString("levels.%s.xp".formatted(levelKey)));
+			final var xp = config.getInt("levels.%s.xp".formatted(levelKey));
+			final var tier = config.getInt("levels.%s.tier".formatted(levelKey));
+			final var tierMessage = config.getString("tiers.%d".formatted(tier));
+			final var special = config.getBoolean("levels.%s.special".formatted(levelKey));
 
-			this.levels.add(new Level(level, xp));
+			this.levels.add(new Level(level, xp, special, tierMessage));
 		}
 	}
 

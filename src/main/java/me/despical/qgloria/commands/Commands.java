@@ -8,6 +8,7 @@ import me.despical.qgloria.Main;
 import me.despical.qgloria.api.StatsStorage;
 import me.despical.qgloria.item.RuneStone;
 import me.despical.qgloria.menus.SelectMenu;
+import me.despical.qgloria.menus.levels.LevelsMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 
@@ -51,6 +52,25 @@ public class Commands {
 	public void runeStoneCommand(CommandArguments arguments) {
 		Player player = arguments.getSender();
 		player.getInventory().addItem(RuneStone.RUNE_STONE);
+	}
+
+	@Command(
+		name = "qgloria.levels",
+		permission = "qgloria.runestone"
+	)
+	public void levelsCommand(CommandArguments arguments) {
+		new LevelsMenu(plugin, arguments.getSender());
+	}
+
+	@Command(
+		name = "qgloria.level",
+		min = 1,
+		permission = "qgloria.runestone"
+	)
+	public void setLevelCommand(CommandArguments arguments) {
+		var user = plugin.getUserManager().getUser(arguments.getSender());
+
+		user.setStat(StatsStorage.StatisticType.LEVEL, arguments.getArgumentAsInt(0));
 	}
 
 	@Command(

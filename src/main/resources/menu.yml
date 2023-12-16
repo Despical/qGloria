@@ -1,7 +1,7 @@
 classes:
   barbarian:
     material: FIRE_CHARGE
-    name: "                           #ff2600&lBarbarian #ff2600⚔"
+    name: "                        #ff2600&lBarbarian #ff2600⚔"
     lore:
       - ""
       - "&7Barbarian sınıfının hasarı diğer sınıflara göre"

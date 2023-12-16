@@ -8,4 +8,6 @@ import lombok.Getter;
 public class Level {
 
 	private int level, xp;
+	private boolean special;
+	private String tierMessage;
 }
