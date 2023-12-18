@@ -52,7 +52,7 @@ public class RuneStone implements Listener {
 		if (!RUNE_STONE.equals(item)) return;
 
 		Player player = event.getPlayer();
-		player.getInventory().remove(RUNE_STONE);
+		item.setAmount(item.getAmount() - 1);
 
 		ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).build();
 		EnchantmentStorageMeta bookMeta = (EnchantmentStorageMeta) book.getItemMeta();
