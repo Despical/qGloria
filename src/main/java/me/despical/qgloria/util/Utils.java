@@ -16,6 +16,9 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+	private Utils() {
+	}
+
 	public static String intToRoman(int i) {
 		if (i == 5) return "V";
 		return "I".repeat(i);
