@@ -39,3 +39,27 @@ classes:
       - "#fff6de&lÇekirdek Değerleri:"
       - "#424242• #d99e3fSavunma: #A93226-3%"
       - "#424242• #d99e3fSaldırı: #30ff49+5%"
+
+level-menu:
+  locked-special-level: "&6&lÖzel &cSeviye Ödülü"
+  unlocked-special-level: "&6&lÖzel &aSeviye Ödülü"
+  unlocked-message: "&aZaten bu ödülü aldın!"
+  locked-message: "&cBu ödülü şu an alamazsın!"
+  unlocked-level:
+    item: GOLD_INGOT
+    name: "&a&lNormal &aSeviye Ödülü"
+    lore:
+      - "%tier_message%"
+      - ""
+      - "&7Gerekli Puan: &e%needed_exp%"
+      - "%rewards%"
+      - "%locked_message%"
+  locked-level:
+    item: COAL
+    name: "&a&lNormal &cSeviye Ödülü"
+    lore:
+      - "%tier_message%"
+      - ""
+      - "&7Gerekli Puan: &e%needed_exp%"
+      - "%rewards%"
+      - "%locked_message%"

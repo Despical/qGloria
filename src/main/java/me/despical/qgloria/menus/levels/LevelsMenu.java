@@ -25,7 +25,7 @@ public class LevelsMenu {
 		this.paginatedPane = new PaginatedPane(9, 6);
 		this.gui.addPane(paginatedPane);
 
-		var components = new LevelComponents();
+		var components = new LevelComponents(this);
 		components.injectComponents(this);
 
 		this.gui.show(player);

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Added PlaceholderAPI support" />
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Fixed on rune stone usage all the rune stones get removed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/levels/LevelComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/levels/LevelComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +53,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/berke/IdeaProjects/qGloria&quot;,
@@ -120,6 +125,12 @@
       <workItem from="1702671686279" duration="3373000" />
       <workItem from="1702711645442" duration="31000" />
       <workItem from="1702712655854" duration="323000" />
+      <workItem from="1702715597113" duration="8680000" />
+      <workItem from="1702761381070" duration="256000" />
+      <workItem from="1702914691744" duration="785000" />
+      <workItem from="1702985288252" duration="8000" />
+      <workItem from="1703086084024" duration="426000" />
+      <workItem from="1703087595221" duration="976000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -369,18 +380,55 @@
       <option name="project" value="LOCAL" />
       <updated>1702712929305</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed class ids">
+      <option name="closed" value="true" />
+      <created>1702718040971</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1702718040971</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Force player to select a class">
+      <option name="closed" value="true" />
+      <created>1702718762206</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702718762206</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added level visualisation">
+      <option name="closed" value="true" />
+      <created>1702724417038</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702724417038</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added private constructor to Utils class">
+      <option name="closed" value="true" />
+      <created>1702915324744</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1702915324744</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed on rune stone usage all the rune stones get removed">
+      <option name="closed" value="true" />
+      <created>1702915355709</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1702915355709</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added passive system" />
-    <MESSAGE value="Added element selecting" />
-    <MESSAGE value="Fixed fire element passives" />
-    <MESSAGE value="Fixed air sharpness passive" />
-    <MESSAGE value="Added double jump to air element" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Added swift feet passive to air element" />
     <MESSAGE value="Added fast grow to earth" />
     <MESSAGE value="Added User#sendTitle and User#sendRawTitle" />
@@ -401,6 +449,11 @@
     <MESSAGE value="Finished LifeSteal enchantment" />
     <MESSAGE value="Finished enchantment system" />
     <MESSAGE value="Added PlaceholderAPI support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added PlaceholderAPI support" />
+    <MESSAGE value="Fixed class ids" />
+    <MESSAGE value="Force player to select a class" />
+    <MESSAGE value="Added level visualisation" />
+    <MESSAGE value="Added private constructor to Utils class" />
+    <MESSAGE value="Fixed on rune stone usage all the rune stones get removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed on rune stone usage all the rune stones get removed" />
   </component>
 </project>

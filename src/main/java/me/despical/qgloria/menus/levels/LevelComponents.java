@@ -12,6 +12,8 @@ import me.despical.qgloria.Main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author Despical
@@ -28,6 +30,12 @@ public class LevelComponents {
 		xy(3, 0), xy(3, 1), xy(3, 2), xy(3, 3), xy(4, 3), xy(5, 3), xy(5, 2), xy(5, 1), xy(5, 0), xy(6, 0),
 		xy(7, 0), xy(7, 1), xy(7, 2), xy(7, 3), xy(8, 3));
 
+	private final LevelsMenu menu;
+
+	public LevelComponents(LevelsMenu menu) {
+		this.menu = menu;
+	}
+
 	public void injectComponents(LevelsMenu menu) {
 		var plugin = menu.plugin;
 		var user = plugin.getUserManager().getUser(menu.player);
@@ -39,6 +47,7 @@ public class LevelComponents {
 		var lastLevel = 0;
 
 		boolean decreaseFirst = true;
+
 		while (remainingLevels > 0) {
 			remainingLevels -= decreaseFirst ? 24 : 22;
 
@@ -48,11 +57,11 @@ public class LevelComponents {
 			addMoveItems(staticPane, paginatedPane, menu.gui);
 
 			if (remainingLevels >= 0) {
-				addLevelItems(plugin, lastLevel, maxConstant, level, staticPane, FIRST_PAGE);
+				addLevelItems(lastLevel, maxConstant, level, staticPane, FIRST_PAGE);
 
 				lastLevel += 24;
 			} else {
-				addLevelItems(plugin, lastLevel, maxConstant, level, staticPane, SECOND_PAGE);
+				addLevelItems(lastLevel, maxConstant, level, staticPane, SECOND_PAGE);
 
 				lastLevel += 19;
 			}
@@ -120,24 +129,27 @@ public class LevelComponents {
 			lore.add("&8+&7%.3f &7Açlık Doldurma".formatted(val.accept("saturation")));
 		}
 
+		List<String> newLore = new ArrayList<>();
+
 		if (lore.size() == 1) {
-			List<String> newLore = new ArrayList<>();
 			newLore.add("&7Ödül:");
 			newLore.addAll(lore);
-			newLore.add("");
 			return newLore;
 		} else if (lore.size() > 1) {
-			List<String> newLore = new ArrayList<>();
 			newLore.add("&7Ödüller:");
 			newLore.addAll(lore);
-			newLore.add("");
 			return newLore;
 		}
 
 		return lore;
 	}
 
-	private void addLevelItems(Main plugin, int lastLevel, int maxConstant, int level, StaticPane staticPane, List<XY> list) {
+	private void addLevelItems(int lastLevel, int maxConstant, int level, StaticPane staticPane, List<XY> list) {
+
+		var plugin = menu.plugin;
+		var config = ConfigUtils.getConfig(plugin, "menu");
+		Function<String, String> getStr = (path) -> config.getString("level-menu." + path);
+
 		for (int i = 0; i < list.size(); i++) {
 			ItemBuilder builder;
 			int currentLevel = i + 1 + lastLevel;
@@ -145,22 +157,47 @@ public class LevelComponents {
 			if (currentLevel > maxConstant) break;
 
 			if (level > currentLevel) {
-				builder = new ItemBuilder(XMaterial.GOLD_INGOT).name("&a&lNormal &aSeviye Ödülü");
+				builder = new ItemBuilder(XMaterial.matchXMaterial(getStr.apply("unlocked-level.item")).get()).name(getStr.apply("unlocked-level.name"));
 			} else {
-				builder = new ItemBuilder(XMaterial.COAL).name("&a&lNormal &cSeviye Ödülü");
+				builder = new ItemBuilder(XMaterial.matchXMaterial(getStr.apply("locked-level.item")).get()).name(getStr.apply("locked-level.name"));
 			}
 
 			var realLevel = plugin.getLevelManager().getLevel(currentLevel);
 
 			if (realLevel.isSpecial()) {
-				builder = new ItemBuilder(getSpecial(level, currentLevel)).
-					name(level > i + 1 ? "&6&lÖzel &aSeviye Ödülü" : "&6&lÖzel &cSeviye Ödülü");
+				builder = new ItemBuilder(getSpecial(level, currentLevel)).name(level > i + 1 ? getStr.apply("unlocked-special-level") : getStr.apply("locked-special-level"));
 			}
 
-			builder.lore(realLevel.getTierMessage(), "").
-				lore("&7Gerekli Puan: &e" + realLevel.getXp(), "").
-				lore(getRewards(plugin, currentLevel)).
-				lore(level > currentLevel ? "&aZaten bu ödülü aldın!" : "&cBu ödülü şu an alamazsın!");
+			var lore = config.getStringList("level-menu.unlocked-level.lore").stream()
+				.map(msg -> {
+					msg = msg.replace("%tier_message%", realLevel.getTierMessage());
+					msg = msg.replace("%needed_exp%", Integer.toString(realLevel.getXp()));
+					msg = msg.replace("%locked_message%", level > currentLevel ? getStr.apply("unlocked-message") : getStr.apply("locked-message"));
+					return msg;
+				}).collect(Collectors.toList());
+
+			for (int j = 0; j < lore.size(); j++) {
+				if (lore.get(j).equals("%rewards%")) {
+					var rewardsLore = getRewards(plugin, currentLevel);
+
+					if (rewardsLore.isEmpty()) {
+						lore.set(j, "");
+						break;
+					}
+
+					var firstPart = new ArrayList<>(lore.subList(0, j));
+					var secondPart = new ArrayList<>(lore.subList(j + 1, lore.size()));
+
+					firstPart.add("");
+					firstPart.addAll(rewardsLore);
+					firstPart.add("");
+					firstPart.addAll(secondPart);
+					lore = firstPart;
+					break;
+				}
+			}
+
+			builder.lore(lore);
 
 			var xy = list.get(i);
 
@@ -172,13 +209,6 @@ public class LevelComponents {
 		return new XY(x, y);
 	}
 
-	private static class XY {
-
-		final int x, y;
-
-		public XY(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
+	private record XY(int x, int y) {
 	}
 }
