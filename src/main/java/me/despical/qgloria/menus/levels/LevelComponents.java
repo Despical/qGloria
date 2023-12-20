@@ -145,7 +145,6 @@ public class LevelComponents {
 	}
 
 	private void addLevelItems(int lastLevel, int maxConstant, int level, StaticPane staticPane, List<XY> list) {
-
 		var plugin = menu.plugin;
 		var config = ConfigUtils.getConfig(plugin, "menu");
 		Function<String, String> getStr = (path) -> config.getString("level-menu." + path);

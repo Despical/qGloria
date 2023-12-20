@@ -2,6 +2,8 @@ package me.despical.qgloria;
 
 import lombok.Getter;
 import me.despical.commandframework.CommandFramework;
+import me.despical.qgloria.armorcalc.Calculator;
+import me.despical.qgloria.armorcalc.ConfigLoader;
 import me.despical.qgloria.commands.Commands;
 import me.despical.qgloria.enchantments.base.EnchantmentManager;
 import me.despical.qgloria.events.EventListener;
@@ -24,6 +26,7 @@ public class Main extends JavaPlugin implements Listener {
 	private LevelManager levelManager;
 	private UserManager userManager;
 	private EnchantmentManager enchantmentManager;
+	private Calculator calculator;
 
     @Override
     public void onEnable() {
@@ -44,6 +47,9 @@ public class Main extends JavaPlugin implements Listener {
 		this.levelManager = new LevelManager(this);
 		this.userManager = new UserManager(this);
 		this.enchantmentManager = new EnchantmentManager();
+		this.calculator = new Calculator();
+
+		ConfigLoader.parseConfig(this);
 
 		new Commands(this);
 

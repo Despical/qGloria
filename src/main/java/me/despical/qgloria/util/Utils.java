@@ -19,6 +19,35 @@ public class Utils {
 	private Utils() {
 	}
 
+	public static String capitalize(String str) {
+		final StringBuilder builder = new StringBuilder();
+		final String[] words = str.toLowerCase().split(" ");
+
+		for (int i = 0; i < words.length; i++) {
+			final String word = words[i];
+
+			if (word.isEmpty()) {
+				continue;
+			}
+
+			builder.append(String.valueOf(word.charAt(0)).toUpperCase());
+
+			if (word.length() > 1) {
+				builder.append(word.substring(1));
+			}
+
+			if (i < words.length - 1) {
+				builder.append(" ");
+			}
+		}
+
+		return builder.toString();
+	}
+
+	public static double roundToTwo(final double amount){
+		return Math.round(amount * 100.0) / 100.0;
+	}
+
 	public static String intToRoman(int i) {
 		if (i == 5) return "V";
 		return "I".repeat(i);

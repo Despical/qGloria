@@ -51,6 +51,7 @@ public class PlaceholderManager extends PlaceholderExpansion {
 
 		return switch (id.toLowerCase()) {
 			case "sınıf" -> Utils.getElementName(user);
+			case "savaş_gücü" -> String.format("%.2f".formatted(plugin.getCalculator().calculatePlayerNumber(player, false).result()));
 			default -> null;
 		};
 	}
