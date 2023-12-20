@@ -9,6 +9,7 @@ import me.despical.inventoryframework.GuiItem;
 import me.despical.inventoryframework.pane.PaginatedPane;
 import me.despical.inventoryframework.pane.StaticPane;
 import me.despical.qgloria.Main;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,8 +83,8 @@ public class LevelComponents {
 		}), 8, 5);
 	}
 
-	private XMaterial getSpecial(int level, int requiredLevel) {
-		return level >= requiredLevel ? XMaterial.COOKIE : XMaterial.COAL_BLOCK;
+	private XMaterial getSpecial(FileConfiguration config, int level, int requiredLevel) {
+		return XMaterial.matchXMaterial("level-menu." + (level >= requiredLevel ? "unlocked-special-item" : "locked-special-item")).get();
 	}
 
 	private List<String> getRewards(Main plugin, int level) {
@@ -164,7 +165,7 @@ public class LevelComponents {
 			var realLevel = plugin.getLevelManager().getLevel(currentLevel);
 
 			if (realLevel.isSpecial()) {
-				builder = new ItemBuilder(getSpecial(level, currentLevel)).name(level > i + 1 ? getStr.apply("unlocked-special-level") : getStr.apply("locked-special-level"));
+				builder = new ItemBuilder(getSpecial(config, level, currentLevel)).name(level > i + 1 ? getStr.apply("unlocked-special-level") : getStr.apply("locked-special-level"));
 			}
 
 			var lore = config.getStringList("level-menu.unlocked-level.lore").stream()

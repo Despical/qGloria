@@ -41,6 +41,8 @@ classes:
       - "#424242• #d99e3fSaldırı: #30ff49+5%"
 
 level-menu:
+  unlocked-special-item: COOKIE
+  locked-special-item: COAL_BLOCK
   locked-special-level: "&6&lÖzel &cSeviye Ödülü"
   unlocked-special-level: "&6&lÖzel &aSeviye Ödülü"
   unlocked-message: "&aZaten bu ödülü aldın!"
