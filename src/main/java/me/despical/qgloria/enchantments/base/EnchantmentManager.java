@@ -21,10 +21,8 @@ public class EnchantmentManager {
 	public static final Supplier<Enchantment> RANDOM_ENCHANTMENT = () -> CUSTOM_ENCHANTMENTS.get(ThreadLocalRandom.current().nextInt(6));
 
 	public EnchantmentManager() {
-		var enchantments = Arrays.asList(Enchantment.values());
-
 		for (var enchantment : CUSTOM_ENCHANTMENTS) {
-			if (!enchantments.contains(enchantment))
+			if (Enchantment.getByName(enchantment.getName()) == null)
 				registerEnchantment(enchantment);
 
 			((CustomEnchantment) enchantment).initialize();
