@@ -156,7 +156,7 @@ public class LevelComponents {
 
 			if (currentLevel > maxConstant) break;
 
-			if (level > currentLevel) {
+			if (level >= currentLevel) {
 				builder = new ItemBuilder(XMaterial.matchXMaterial(getStr.apply("unlocked-level.item")).get()).name(getStr.apply("unlocked-level.name"));
 			} else {
 				builder = new ItemBuilder(XMaterial.matchXMaterial(getStr.apply("locked-level.item")).get()).name(getStr.apply("locked-level.name"));
