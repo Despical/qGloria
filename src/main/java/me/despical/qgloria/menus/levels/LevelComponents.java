@@ -84,7 +84,7 @@ public class LevelComponents {
 	}
 
 	private XMaterial getSpecial(FileConfiguration config, int level, int requiredLevel) {
-		return XMaterial.matchXMaterial("level-menu." + (level >= requiredLevel ? "unlocked-special-item" : "locked-special-item")).get();
+		return XMaterial.matchXMaterial(config.getString("level-menu." + (level >= requiredLevel ? "unlocked-special-item" : "locked-special-item"))).get();
 	}
 
 	private List<String> getRewards(Main plugin, int level) {
