@@ -62,6 +62,6 @@ public class RuneStone implements Listener {
 		bookMeta.setLore(Stream.of("&7" + enchantment.getName() + " " + Utils.intToRoman(level)).map(Strings::format).toList());
 		book.setItemMeta(bookMeta);
 
-		player.getLocation().getWorld().dropItemNaturally(player.getLocation(), book);
+		player.getInventory().addItem(book);
 	}
 }

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Fixed on rune stone usage all the rune stones get removed">
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Fixed last level not unlocking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/levels/LevelComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/menus/levels/LevelComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +70,7 @@
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn compile" />
       <command value="mvn clean" />
       <command value="mvn clean package" />
     </option>
@@ -131,6 +131,10 @@
       <workItem from="1702985288252" duration="8000" />
       <workItem from="1703086084024" duration="426000" />
       <workItem from="1703087595221" duration="976000" />
+      <workItem from="1703088824994" duration="6013000" />
+      <workItem from="1703184008344" duration="1059000" />
+      <workItem from="1703187012320" duration="29000" />
+      <workItem from="1703238304811" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -420,7 +424,55 @@
       <option name="project" value="LOCAL" />
       <updated>1702915355709</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added everything to config file">
+      <option name="closed" value="true" />
+      <created>1703092540374</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1703092540374</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added armor calculator">
+      <option name="closed" value="true" />
+      <created>1703094069366</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1703094069366</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added special level items to config file">
+      <option name="closed" value="true" />
+      <created>1703094352789</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1703094352789</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fixed enchantment registering throws exception">
+      <option name="closed" value="true" />
+      <created>1703184603396</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1703184603396</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Fixed levels menu throws exception">
+      <option name="closed" value="true" />
+      <created>1703184650017</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1703184650017</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Fixed last level not unlocking">
+      <option name="closed" value="true" />
+      <created>1703184962180</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1703184962180</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,12 +481,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added swift feet passive to air element" />
-    <MESSAGE value="Added fast grow to earth" />
-    <MESSAGE value="Added User#sendTitle and User#sendRawTitle" />
-    <MESSAGE value="Added %level% placeholder" />
-    <MESSAGE value="Finished all passives" />
-    <MESSAGE value="Added custom enchantment system" />
     <MESSAGE value="Added quick feet enchantment" />
     <MESSAGE value="Fixed rising arrows not working" />
     <MESSAGE value="Added flame circle enchantment" />
@@ -454,6 +500,12 @@
     <MESSAGE value="Added level visualisation" />
     <MESSAGE value="Added private constructor to Utils class" />
     <MESSAGE value="Fixed on rune stone usage all the rune stones get removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed on rune stone usage all the rune stones get removed" />
+    <MESSAGE value="Added everything to config file" />
+    <MESSAGE value="Added armor calculator" />
+    <MESSAGE value="Added special level items to config file" />
+    <MESSAGE value="Fixed enchantment registering throws exception" />
+    <MESSAGE value="Fixed levels menu throws exception" />
+    <MESSAGE value="Fixed last level not unlocking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed last level not unlocking" />
   </component>
 </project>
