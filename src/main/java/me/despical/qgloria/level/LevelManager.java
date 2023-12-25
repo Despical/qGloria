@@ -57,7 +57,7 @@ public class LevelManager {
 	}
 
 	public Level getLevel(User user) {
-		int level = Math.max(1, user.getStat(StatsStorage.StatisticType.LEVEL));
+		final int level = Math.max(1, user.getStat(StatsStorage.StatisticType.LEVEL));
 
 		return levels.stream().filter(l -> l.getLevel() == level).findFirst().orElse(null);
 	}
