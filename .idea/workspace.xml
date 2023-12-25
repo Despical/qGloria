@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Fixed last level not unlocking">
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Now rune stone books will directly give into player's inventory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/despical/qgloria/item/RuneStone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,7 @@
       <workItem from="1703088824994" duration="6013000" />
       <workItem from="1703184008344" duration="1059000" />
       <workItem from="1703187012320" duration="29000" />
-      <workItem from="1703238304811" duration="306000" />
+      <workItem from="1703238304811" duration="689000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -472,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703184962180</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Now rune stone books will directly give into player's inventory">
+      <option name="closed" value="true" />
+      <created>1703238981501</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1703238981501</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +487,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added quick feet enchantment" />
     <MESSAGE value="Fixed rising arrows not working" />
     <MESSAGE value="Added flame circle enchantment" />
     <MESSAGE value="Uploaded project files" />
@@ -506,6 +511,7 @@
     <MESSAGE value="Fixed enchantment registering throws exception" />
     <MESSAGE value="Fixed levels menu throws exception" />
     <MESSAGE value="Fixed last level not unlocking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed last level not unlocking" />
+    <MESSAGE value="Now rune stone books will directly give into player's inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now rune stone books will directly give into player's inventory" />
   </component>
 </project>

@@ -52,5 +52,8 @@ public non-sealed class FileStatistics extends IUserDatabase {
 
 		if (user.getStat(StatsStorage.StatisticType.ELEMENT) != 0)
 			user.setElement(Utils.getElement(user));
+
+		if (user.getStat(StatsStorage.StatisticType.LEVEL) == 0)
+			user.setStat(StatsStorage.StatisticType.LEVEL, 1);
 	}
 }
