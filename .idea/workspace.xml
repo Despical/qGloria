@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Now rune stone books will directly give into player's inventory">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,6 +131,7 @@
       <workItem from="1703184008344" duration="1059000" />
       <workItem from="1703187012320" duration="29000" />
       <workItem from="1703238304811" duration="689000" />
+      <workItem from="1703488645083" duration="281000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -478,7 +477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703238981501</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fixed user level not found">
+      <option name="closed" value="true" />
+      <created>1703488801358</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1703488801358</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Make level field final in #getLevel method">
+      <option name="closed" value="true" />
+      <created>1703488906064</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1703488906064</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,8 +502,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fixed rising arrows not working" />
-    <MESSAGE value="Added flame circle enchantment" />
     <MESSAGE value="Uploaded project files" />
     <MESSAGE value="Finished enchantments" />
     <MESSAGE value="New features" />
@@ -512,6 +525,8 @@
     <MESSAGE value="Fixed levels menu throws exception" />
     <MESSAGE value="Fixed last level not unlocking" />
     <MESSAGE value="Now rune stone books will directly give into player's inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now rune stone books will directly give into player's inventory" />
+    <MESSAGE value="Fixed user level not found" />
+    <MESSAGE value="Make level field final in #getLevel method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make level field final in #getLevel method" />
   </component>
 </project>

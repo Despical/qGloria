@@ -74,6 +74,13 @@ public class Commands {
 	}
 
 	@Command(
+		name = "qgloria.test"
+	)
+	public void test(CommandArguments arguments) {
+		arguments.sendMessage("" + plugin.getUserManager().getUser(arguments.getSender()).getLevel());
+	}
+
+	@Command(
 		name = "qgloria.reset",
 		permission = "qgloria.reset",
 		min = 1,

@@ -49,9 +49,16 @@ public class LevelEvents extends EventListener {
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 		if (!(event.getEntity() instanceof Player player && event.getDamager() instanceof Player damager)) return;
 
+		if (player.hasMetadata("NPC")) return;
+
 		var damagerLevel = userManager.getUser(damager).getLevel();
 		var attackModifier = levelManager.getModifier("attack", damagerLevel);
-		var defenseModifier = levelManager.getModifier("defense", userManager.getUser(player).getLevel());
+		var user = userManager.getUser(player);
+		var playerLevel = plugin.getLevelManager().getLevel(user);
+
+		if (playerLevel == null) return;
+
+		var defenseModifier = levelManager.getModifier("defense", playerLevel.getLevel());
 		var damage = event.getDamage() + attackModifier - defenseModifier;
 
 		if (Utils.isCriticalHit(damager)) damage += levelManager.getModifier("critical-hit", damagerLevel);
