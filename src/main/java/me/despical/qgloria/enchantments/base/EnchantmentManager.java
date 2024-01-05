@@ -21,21 +21,23 @@ public class EnchantmentManager {
 	public static final Supplier<Enchantment> RANDOM_ENCHANTMENT = () -> CUSTOM_ENCHANTMENTS.get(ThreadLocalRandom.current().nextInt(6));
 
 	public EnchantmentManager() {
-		for (var enchantment : CUSTOM_ENCHANTMENTS) {
-			if (Enchantment.getByName(enchantment.getName()) == null)
-				registerEnchantment(enchantment);
-
-			((CustomEnchantment) enchantment).initialize();
-		}
+		registerEnchantments();
 	}
 
-	private void registerEnchantment(Enchantment enchantment) {
+	private void registerEnchantments() {
 		try {
 			var field = Enchantment.class.getDeclaredField("acceptingNew");
 			field.setAccessible(true);
 			field.set(null, true);
 
-			Enchantment.registerEnchantment(enchantment);
+			for (var enchantment : CUSTOM_ENCHANTMENTS) {
+				if (Enchantment.getByName(enchantment.getName()) == null)
+					Enchantment.registerEnchantment(enchantment);
+
+				((CustomEnchantment) enchantment).initialize();
+			}
+
+			Enchantment.stopAcceptingRegistrations();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
