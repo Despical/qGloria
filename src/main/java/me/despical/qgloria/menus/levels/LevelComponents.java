@@ -98,10 +98,6 @@ public class LevelComponents {
 			lore.add("&8+&7%.3f &7Saldırı".formatted(val.accept("attack")));
 		}
 
-		if (test.accept("attack-speed")) {
-			lore.add("&8+&7%.3f &7Atak Hızı".formatted(val.accept("attack-speed")));
-		}
-
 		if (test.accept("critical-hit")) {
 			lore.add("&8+&7%.3f &7Kritik Vuruş Hasarı".formatted(val.accept("critical-hit")));
 		}

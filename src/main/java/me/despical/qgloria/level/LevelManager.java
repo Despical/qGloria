@@ -40,7 +40,6 @@ public class LevelManager {
 		if (playerXP + xp >= currentLevelXP) {
 			user.addStat(StatsStorage.StatisticType.LEVEL, 1);
 
-			updateAttackSpeed(user);
 			updatePlayerSpeed(user);
 
 			user.sendMessage("level-messages.new-level");
@@ -84,12 +83,6 @@ public class LevelManager {
 
 			this.levels.add(new Level(level, xp, special, tierMessage));
 		}
-	}
-
-	public void updateAttackSpeed(User user) {
-		var currentLevel = getLevel(user).getLevel();
-
-		AttributeUtils.setAttackCooldown(user.getPlayer(), 16 - getModifier("attack-speed", currentLevel));
 	}
 
 	public void updatePlayerSpeed(User user) {

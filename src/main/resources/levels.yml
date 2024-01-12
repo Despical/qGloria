@@ -16,7 +16,6 @@ levels:
     xp: 303
   '6':
     xp: 389
-    attack-speed: 0.05
   '7':
     xp: 483
     defense: 0.1
@@ -76,5 +75,4 @@ levels:
   '25':
     xp: 3543
     attack: 0.5
-    attack-speed: 0.025
     tier: 1

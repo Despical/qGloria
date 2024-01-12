@@ -48,7 +48,6 @@ public non-sealed class FileStatistics extends IUserDatabase {
 		var levelManager = plugin.getLevelManager();
 
 		levelManager.updatePlayerSpeed(user);
-		levelManager.updateAttackSpeed(user);
 
 		if (user.getStat(StatsStorage.StatisticType.ELEMENT) != 0)
 			user.setElement(Utils.getElement(user));
