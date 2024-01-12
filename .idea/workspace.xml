@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Improved enchantment registering" />
+    <list default="true" id="23be79c3-f881-473d-8961-e1c1d5071736" name="Changes" comment="Removed attack speed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +134,7 @@
       <workItem from="1703488645083" duration="281000" />
       <workItem from="1703746654524" duration="839000" />
       <workItem from="1704464326655" duration="812000" />
+      <workItem from="1705065229230" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu file to change name and lore">
       <option name="closed" value="true" />
@@ -511,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704465052459</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Removed attack speed">
+      <option name="closed" value="true" />
+      <created>1705065301678</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1705065301678</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +529,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="New features" />
     <MESSAGE value="Finished menus etc." />
     <MESSAGE value="Finished AttackPower" />
     <MESSAGE value="Replaced #contains with #containsKey" />
@@ -545,6 +553,7 @@
     <MESSAGE value="Make level field final in #getLevel method" />
     <MESSAGE value="Fixed if entity is NPC level event throws NPE" />
     <MESSAGE value="Improved enchantment registering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved enchantment registering" />
+    <MESSAGE value="Removed attack speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed attack speed" />
   </component>
 </project>

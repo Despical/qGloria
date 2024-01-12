@@ -56,7 +56,7 @@ public class Commands {
 
 	@Command(
 		name = "qgloria.levels",
-		permission = "qgloria.runestone"
+		permission = "qgloria.levels"
 	)
 	public void levelsCommand(CommandArguments arguments) {
 		new LevelsMenu(plugin, arguments.getSender());
@@ -64,20 +64,13 @@ public class Commands {
 
 	@Command(
 		name = "qgloria.level",
-		min = 1,
-		permission = "qgloria.runestone"
+		permission = "qgloria.level",
+		min = 1
 	)
 	public void setLevelCommand(CommandArguments arguments) {
 		var user = plugin.getUserManager().getUser(arguments.getSender());
 
 		user.setStat(StatsStorage.StatisticType.LEVEL, arguments.getArgumentAsInt(0));
-	}
-
-	@Command(
-		name = "qgloria.test"
-	)
-	public void test(CommandArguments arguments) {
-		arguments.sendMessage("" + plugin.getUserManager().getUser(arguments.getSender()).getLevel());
 	}
 
 	@Command(
