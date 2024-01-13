@@ -2,6 +2,7 @@ package me.despical.qgloria.handlers;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.despical.qgloria.Main;
+import me.despical.qgloria.api.StatsStorage;
 import me.despical.qgloria.util.Utils;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -51,6 +52,8 @@ public class PlaceholderManager extends PlaceholderExpansion {
 
 		return switch (id.toLowerCase()) {
 			case "sınıf" -> Utils.getElementName(user);
+			case "level" -> Integer.toString(user.getLevel());
+			case "xp" -> Integer.toString(user.getStat(StatsStorage.StatisticType.XP));
 			case "savaş_gücü" -> String.format("%.2f".formatted(plugin.getCalculator().calculatePlayerNumber(player, false).result()));
 			default -> null;
 		};
