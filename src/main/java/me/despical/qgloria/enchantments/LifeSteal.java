@@ -41,7 +41,7 @@ public class LifeSteal extends CustomEnchantment {
 				if (health >= damager.getMaxHealth())
 					health = damager.getMaxHealth();
 
-				damager.setHealth(health);
+				damager.setHealth(Math.min(20, health));
 			}
 		};
 	}

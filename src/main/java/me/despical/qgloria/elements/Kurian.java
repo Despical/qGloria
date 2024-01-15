@@ -26,11 +26,11 @@ public class Kurian extends Element {
 
 			@EventHandler
 			public void onDamage(EntityDamageByEntityEvent event) {
-				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player player)) return;
+				if (!(event.getDamager() instanceof Player damager && event.getEntity() instanceof Player)) return;
 				if (!isPassiveEnabled(lifeStealing)) return;
 
 				if (ThreadLocalRandom.current().nextInt(100) <= 5) {
-					damager.setHealth(damager.getHealth() + ThreadLocalRandom.current().nextDouble(1));
+					damager.setHealth(Math.min(20, damager.getHealth() + ThreadLocalRandom.current().nextDouble(1)));
 				}
 			}
 		});
