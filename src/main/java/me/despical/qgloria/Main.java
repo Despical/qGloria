@@ -61,7 +61,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	private void setupConfigurationFiles() {
-		Stream.of("messages", "stats", "levels", "menu").filter(fileName -> !new File(getDataFolder(),fileName + ".yml").exists()).forEach(fileName -> this.saveResource(fileName + ".yml", false));
+		Stream.of("messages", "stats", "levels", "menu", "items").filter(fileName -> !new File(getDataFolder(),fileName + ".yml").exists()).forEach(fileName -> this.saveResource(fileName + ".yml", false));
 	}
 
 	private void saveAllUserStatistics() {
